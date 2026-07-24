@@ -1,0 +1,1172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+    <html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+	  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	  <meta http-equiv="Content-Style-Type" content="text/css" />
+	  <meta name="generator" content="pandoc" />
+	  <title></title>
+	  <style type="text/css">code{white-space: pre;}</style>
+	  <link href="data:text/css,%2F%2A%20%20GitHub%20stylesheet%20for%20MarkdownPad%20%28http%3A%2F%2Fmarkdownpad%2Ecom%29%20%2A%2F%0A%0A%2F%2A%20RESET%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Ahtml%2C%20body%2C%20div%2C%20span%2C%20applet%2C%20object%2C%20iframe%2C%20h1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%2C%20p%2C%20blockquote%2C%20pre%2C%20a%2C%20abbr%2C%20acronym%2C%20address%2C%20big%2C%20cite%2C%20code%2C%20del%2C%20dfn%2C%20em%2C%20img%2C%20ins%2C%20kbd%2C%20q%2C%20s%2C%20samp%2C%20small%2C%20strike%2C%20strong%2C%20sub%2C%20sup%2C%20tt%2C%20var%2C%20b%2C%20u%2C%20i%2C%20center%2C%20dl%2C%20dt%2C%20dd%2C%20ol%2C%20ul%2C%20li%2C%20fieldset%2C%20form%2C%20label%2C%20legend%2C%20table%2C%20caption%2C%20tbody%2C%20tfoot%2C%20thead%2C%20tr%2C%20th%2C%20td%2C%20article%2C%20aside%2C%20canvas%2C%20details%2C%20embed%2C%20figure%2C%20figcaption%2C%20footer%2C%20header%2C%20hgroup%2C%20menu%2C%20nav%2C%20output%2C%20ruby%2C%20section%2C%20summary%2C%20time%2C%20mark%2C%20audio%2C%20video%20%7B%0A%20%20margin%3A%200%3B%0A%20%20padding%3A%200%3B%0A%20%20border%3A%200%3B%0A%7D%0A%0A%2F%2A%20BODY%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Abody%20%7B%0A%20%20font%2Dfamily%3A%20Helvetica%2C%20arial%2C%20freesans%2C%20clean%2C%20sans%2Dserif%3B%0A%20%20font%2Dsize%3A%2014px%3B%0A%20%20line%2Dheight%3A%201%2E6%3B%0A%20%20color%3A%20%23333%3B%0A%20%20background%2Dcolor%3A%20%23fff%3B%0A%20%20padding%3A%2020px%3B%0A%20%20max%2Dwidth%3A%20960px%3B%0A%20%20margin%3A%200%20auto%3B%0A%7D%0A%0Abody%3E%2A%3Afirst%2Dchild%20%7B%0A%20%20margin%2Dtop%3A%200%20%21important%3B%0A%7D%0A%0Abody%3E%2A%3Alast%2Dchild%20%7B%0A%20%20margin%2Dbottom%3A%200%20%21important%3B%0A%7D%0A%0A%2F%2A%20BLOCKS%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Ap%2C%20blockquote%2C%20ul%2C%20ol%2C%20dl%2C%20table%2C%20pre%20%7B%0A%20%20margin%3A%2015px%200%3B%0A%7D%0A%0A%2F%2A%20HEADERS%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Ah1%2C%20h2%2C%20h3%2C%20h4%2C%20h5%2C%20h6%20%7B%0A%20%20margin%3A%2020px%200%2010px%3B%0A%20%20padding%3A%200%3B%0A%20%20font%2Dweight%3A%20bold%3B%0A%20%20%2Dwebkit%2Dfont%2Dsmoothing%3A%20antialiased%3B%0A%7D%0A%0Ah1%20tt%2C%20h1%20code%2C%20h2%20tt%2C%20h2%20code%2C%20h3%20tt%2C%20h3%20code%2C%20h4%20tt%2C%20h4%20code%2C%20h5%20tt%2C%20h5%20code%2C%20h6%20tt%2C%20h6%20code%20%7B%0A%20%20font%2Dsize%3A%20inherit%3B%0A%7D%0A%0Ah1%20%7B%0A%20%20font%2Dsize%3A%2028px%3B%0A%20%20color%3A%20%23000%3B%0A%7D%0A%0Ah2%20%7B%0A%20%20font%2Dsize%3A%2024px%3B%0A%20%20border%2Dbottom%3A%201px%20solid%20%23ccc%3B%0A%20%20color%3A%20%23000%3B%0A%7D%0A%0Ah3%20%7B%0A%20%20font%2Dsize%3A%2018px%3B%0A%7D%0A%0Ah4%20%7B%0A%20%20font%2Dsize%3A%2016px%3B%0A%7D%0A%0Ah5%20%7B%0A%20%20font%2Dsize%3A%2014px%3B%0A%7D%0A%0Ah6%20%7B%0A%20%20color%3A%20%23777%3B%0A%20%20font%2Dsize%3A%2014px%3B%0A%7D%0A%0Abody%3Eh2%3Afirst%2Dchild%2C%20body%3Eh1%3Afirst%2Dchild%2C%20body%3Eh1%3Afirst%2Dchild%2Bh2%2C%20body%3Eh3%3Afirst%2Dchild%2C%20body%3Eh4%3Afirst%2Dchild%2C%20body%3Eh5%3Afirst%2Dchild%2C%20body%3Eh6%3Afirst%2Dchild%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%20%20padding%2Dtop%3A%200%3B%0A%7D%0A%0Aa%3Afirst%2Dchild%20h1%2C%20a%3Afirst%2Dchild%20h2%2C%20a%3Afirst%2Dchild%20h3%2C%20a%3Afirst%2Dchild%20h4%2C%20a%3Afirst%2Dchild%20h5%2C%20a%3Afirst%2Dchild%20h6%20%7B%0A%20%20margin%2Dtop%3A%200%3B%0A%20%20padding%2Dtop%3A%200%3B%0A%7D%0A%0Ah1%2Bp%2C%20h2%2Bp%2C%20h3%2Bp%2C%20h4%2Bp%2C%20h5%2Bp%2C%20h6%2Bp%20%7B%0A%20%20margin%2Dtop%3A%2010px%3B%0A%7D%0A%0A%2F%2A%20LINKS%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Aa%20%7B%0A%20%20color%3A%20%234183C4%3B%0A%20%20text%2Ddecoration%3A%20none%3B%0A%7D%0A%0Aa%3Ahover%20%7B%0A%20%20text%2Ddecoration%3A%20underline%3B%0A%7D%0A%0A%2F%2A%20LISTS%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Aul%2C%20ol%20%7B%0A%20%20padding%2Dleft%3A%2030px%3B%0A%7D%0A%0Aul%20li%20%3E%20%3Afirst%2Dchild%2C%20%0Aol%20li%20%3E%20%3Afirst%2Dchild%2C%20%0Aul%20li%20ul%3Afirst%2Dof%2Dtype%2C%20%0Aol%20li%20ol%3Afirst%2Dof%2Dtype%2C%20%0Aul%20li%20ol%3Afirst%2Dof%2Dtype%2C%20%0Aol%20li%20ul%3Afirst%2Dof%2Dtype%20%7B%0A%20%20margin%2Dtop%3A%200px%3B%0A%7D%0A%0Aul%20ul%2C%20ul%20ol%2C%20ol%20ol%2C%20ol%20ul%20%7B%0A%20%20margin%2Dbottom%3A%200%3B%0A%7D%0A%0Adl%20%7B%0A%20%20padding%3A%200%3B%0A%7D%0A%0Adl%20dt%20%7B%0A%20%20font%2Dsize%3A%2014px%3B%0A%20%20font%2Dweight%3A%20bold%3B%0A%20%20font%2Dstyle%3A%20italic%3B%0A%20%20padding%3A%200%3B%0A%20%20margin%3A%2015px%200%205px%3B%0A%7D%0A%0Adl%20dt%3Afirst%2Dchild%20%7B%0A%20%20padding%3A%200%3B%0A%7D%0A%0Adl%20dt%3E%3Afirst%2Dchild%20%7B%0A%20%20margin%2Dtop%3A%200px%3B%0A%7D%0A%0Adl%20dt%3E%3Alast%2Dchild%20%7B%0A%20%20margin%2Dbottom%3A%200px%3B%0A%7D%0A%0Adl%20dd%20%7B%0A%20%20margin%3A%200%200%2015px%3B%0A%20%20padding%3A%200%2015px%3B%0A%7D%0A%0Adl%20dd%3E%3Afirst%2Dchild%20%7B%0A%20%20margin%2Dtop%3A%200px%3B%0A%7D%0A%0Adl%20dd%3E%3Alast%2Dchild%20%7B%0A%20%20margin%2Dbottom%3A%200px%3B%0A%7D%0A%0A%2F%2A%20CODE%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Apre%2C%20code%2C%20tt%20%7B%0A%20%20font%2Dsize%3A%2012px%3B%0A%20%20font%2Dfamily%3A%20Consolas%2C%20%22Liberation%20Mono%22%2C%20Courier%2C%20monospace%3B%0A%7D%0A%0Acode%2C%20tt%20%7B%0A%20%20margin%3A%200%200px%3B%0A%20%20padding%3A%200px%200px%3B%0A%20%20white%2Dspace%3A%20nowrap%3B%0A%20%20border%3A%201px%20solid%20%23eaeaea%3B%0A%20%20background%2Dcolor%3A%20%23f8f8f8%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%7D%0A%0Apre%3Ecode%20%7B%0A%20%20margin%3A%200%3B%0A%20%20padding%3A%200%3B%0A%20%20white%2Dspace%3A%20pre%3B%0A%20%20border%3A%20none%3B%0A%20%20background%3A%20transparent%3B%0A%7D%0A%0Apre%20%7B%0A%20%20background%2Dcolor%3A%20%23f8f8f8%3B%0A%20%20border%3A%201px%20solid%20%23ccc%3B%0A%20%20font%2Dsize%3A%2013px%3B%0A%20%20line%2Dheight%3A%2019px%3B%0A%20%20overflow%3A%20auto%3B%0A%20%20padding%3A%206px%2010px%3B%0A%20%20border%2Dradius%3A%203px%3B%0A%7D%0A%0Apre%20code%2C%20pre%20tt%20%7B%0A%20%20background%2Dcolor%3A%20transparent%3B%0A%20%20border%3A%20none%3B%0A%7D%0A%0Akbd%20%7B%0A%20%20%20%20%2Dmoz%2Dborder%2Dbottom%2Dcolors%3A%20none%3B%0A%20%20%20%20%2Dmoz%2Dborder%2Dleft%2Dcolors%3A%20none%3B%0A%20%20%20%20%2Dmoz%2Dborder%2Dright%2Dcolors%3A%20none%3B%0A%20%20%20%20%2Dmoz%2Dborder%2Dtop%2Dcolors%3A%20none%3B%0A%20%20%20%20background%2Dcolor%3A%20%23DDDDDD%3B%0A%20%20%20%20background%2Dimage%3A%20linear%2Dgradient%28%23F1F1F1%2C%20%23DDDDDD%29%3B%0A%20%20%20%20background%2Drepeat%3A%20repeat%2Dx%3B%0A%20%20%20%20border%2Dcolor%3A%20%23DDDDDD%20%23CCCCCC%20%23CCCCCC%20%23DDDDDD%3B%0A%20%20%20%20border%2Dimage%3A%20none%3B%0A%20%20%20%20border%2Dradius%3A%202px%202px%202px%202px%3B%0A%20%20%20%20border%2Dstyle%3A%20solid%3B%0A%20%20%20%20border%2Dwidth%3A%201px%3B%0A%20%20%20%20font%2Dfamily%3A%20%22Helvetica%20Neue%22%2CHelvetica%2CArial%2Csans%2Dserif%3B%0A%20%20%20%20line%2Dheight%3A%2010px%3B%0A%20%20%20%20padding%3A%201px%204px%3B%0A%7D%0A%0A%2F%2A%20QUOTES%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Ablockquote%20%7B%0A%20%20border%2Dleft%3A%204px%20solid%20%23DDD%3B%0A%20%20padding%3A%200%2015px%3B%0A%20%20color%3A%20%23777%3B%0A%7D%0A%0Ablockquote%3E%3Afirst%2Dchild%20%7B%0A%20%20margin%2Dtop%3A%200px%3B%0A%7D%0A%0Ablockquote%3E%3Alast%2Dchild%20%7B%0A%20%20margin%2Dbottom%3A%200px%3B%0A%7D%0A%0A%2F%2A%20HORIZONTAL%20RULES%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Ahr%20%7B%0A%20%20clear%3A%20both%3B%0A%20%20margin%3A%2015px%200%3B%0A%20%20height%3A%200px%3B%0A%20%20overflow%3A%20hidden%3B%0A%20%20border%3A%20none%3B%0A%20%20background%3A%20transparent%3B%0A%20%20border%2Dbottom%3A%204px%20solid%20%23ddd%3B%0A%20%20padding%3A%200%3B%0A%7D%0A%0A%2F%2A%20TABLES%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Atable%20th%20%7B%0A%20%20font%2Dweight%3A%20bold%3B%0A%7D%0A%0Atable%20th%2C%20table%20td%20%7B%0A%20%20border%3A%201px%20solid%20%23ccc%3B%0A%20%20padding%3A%206px%2013px%3B%0A%7D%0A%0Atable%20tr%20%7B%0A%20%20border%2Dtop%3A%201px%20solid%20%23ccc%3B%0A%20%20background%2Dcolor%3A%20%23fff%3B%0A%7D%0A%0Atable%20tr%3Anth%2Dchild%282n%29%20%7B%0A%20%20background%2Dcolor%3A%20%23f8f8f8%3B%0A%7D%0A%0A%2F%2A%20IMAGES%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%2A%2F%0A%0Aimg%20%7B%0A%20%20max%2Dwidth%3A%20100%25%0A%7D%0A" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+	<table width="100%">
+	<tbody>
+	  <tr>
+		<td bgcolor="black" width="222px" style="padding: 0px;">
+		  <a href="http://www.ti.com">
+			<img src="data:image/gif;base64,R0lGODlh3gA2AKIAAAAAAP///7u7u29vbz8/PwYGBujo6BgYGCH5BAAAAAAALAAAAADeADYAAAP/CLrc/jDKSau9OOvNu/9gKI5kaZ5oqq5s675wLM90bd94ru987//AoHBILBqPyKRyyWw6n9CodHorDALYLIHKJVqz2q44eAUHtoDB4DBu48rgLQErcNtnX7NhMDcICIB3gix5ZmtqAAZZew8EAo+QkQIDNVZqiIM1cHGKZ4YPAmaiAWw0c1gFmZqjB3SbZ6kNe6WhsAeOlDV0qjSFAXUAp7lwuREFtVsFgMvLB7fNAM+BCs+lDLd8BNYOuxfV22PL0RiWlwO1u3kDqejAEsjR6GB86FsHoYwA6gxWnVgGEegUuIelWJk6jswAGlXQ36J1xBSoQwfulIEDr/6l+VeK/+AehrAGOHRnAWRBbbWegckXAV6wk4AeRQtDQBEaBYsYlMl2hUCsBt0iKgilT9EfAlfO7SmzdKkrkQUT/fqZSECqLCSlntH375IAA1tqGUilLIBSNVnU+NmJNBRVChlF1QwAdlRWBy5P3QymwCLBYhs73cTHYBq3X33nDQ2wcWuBgef0FRD4GK3jU3VCZZUJAIw1OGg0P+4bFiubOWoOsEP1+KvZn3wurDbZ6lfcuw3yYkFjRSeYzRe7ARAbW0K3PmGIMi0OFDG1Mmha+RnufAHn3xL9ha6uTZ/rXagZ1GKAtTsHeWb+FEQvHILuX4+mLzj2j2r4TrFesTwMbE5Cuv8JzbTSGuRV1xgfUJFC3WbA0JWFalcItpgf8YU2yT/qATaedent5cBb8zk0DzIitgfKbonRFV9Wp2xl3UXq5Ccibp05598BnRigiAIJmrZAexkJQIuBwzX4CB3SQbeYQkPVAUco63DI2HzsAdYAiAvEZdYlaVQ5wXs3+bQAjovEUoBRR9LVAFLaPXCcY/KMqVRasQB5kiJgLcYgTkJiuCWKC2ZpIY/z/LRhYefkBAGW1HTyRy2UjObLHxSAOZ948EUVGCSC3SLZbB7iZKOLc2GRRgMH/VhdHnJwFCgD8iEGx0VKvpqbO+hoaCppEg3UiTES1CTkhNaQ+Qs4LQGql07/lET4mIQ6SvTSVGZ9Bmhz/bkYzK+PFKtpje6wumRm1wrLZzSdQASoZvyswdmSuk7p616HfkjBTxZBQucFgqXCFKdn1NpiUlQJhs8kteBWG0AbATbXS2tBlaeoVkmJRova4KkGPmhMFdiSYmq8cbTRYhrlkiHaNufJ9mIgVqEXnAOJM5JE4sgjudQ8bF82x+cKBP4Iiedecyjgx2/WtMNjjhcL9h+S4xq9RYJgsbeeUbmdrPTSQbPccsyijEXOfI8xyuinVJH1wdkS/MQ2Bc5Iq08DyHYwGglvPyCilbz0fa8GLV7r9+Btb7CJ14Qnzg8HpdKoOOF5Py752JNXvrblNphzEHnmnF/a+ecTbA465qKPXnnppkuOeuqKr8465K+z7nrsfc9Ouyq23z5I7rrfwXvvbhSQAAA7" alt="Texas Instruments" border="0">
+		  </a>
+		</td>
+		<td bgcolor="red">
+		  <img src="data:image/gif;base64,R0lGODlhOgEaALMAAP8AAP////92dv+3t/+Njf/W1v/t7f8hIf/19f+jo//Hx/8/P/9cXP/j4//6+v/+/iH5BAAAAAAALAAAAAA6ARoAAAT/EMhJq7046827/2AojmRpnmiqrmzrvnAsz3Rt33iu73zv/8CgcEgsGo/IpHLJbDqft0NDMCBQodis1jcADBKE7nYcCpjPgU5AQBKkVYOHAeRudqtXsh60/vRHdSoBBCGBNAkLe4o4f2psgG8pjR6GM5OLmDB/DA0GBoQADAgICRIBBQUOYgwGCg2kEgudBgUHAIGcBg0MsZ0NCnMGYgsBtqEGAbCynrW3AQONgcIFBgiErK6wAAfUtLbCscWiowoAyLDczLZu0AIJCAYOoJn0G38ObAwPEvLEts/O1vUhsA8AAjGonEmA9W6hGAVpEjiQoKBAhT8HJSRkVyEQQAAJ//a5YeMPQIFyACqCnJjSIgFCB4oB+HOSokWOAB6wIWCxnk8MfYh5QsYg5sVHfQLVMSqhztJIxWIaC6QzJy8KfZgqrNT0zR+nUNl8fSMvZ6IDwJCJRfoI7IR4Cub9nDsha6RwR02xUZpGq1utUWUq9FKgYV6/abgOHjt45tquEgY0SDDHoJg+fxhXolKNrmfH/EoR5EdAKmjQfB1qvPmGIQIJ3g4gC2egVF7LqxtP8Ng2cViTKFUCIGbNFKEEmB/VbDlYdqLRn+du8oTg6jjbmfe+CbTM2+BcuySgbQVtQoOCt7s3U8wbsqGs3ZppZLnylwFe8Uql825ogANPckUnYDoOCogxQGXADajggjcw4AA8DSSyTQASMmjhhTQscBWGHHbo4YcghijiiCSWaOKJKKao4oostugiFBEAADs=">
+		</td>
+	  </tr>
+	</tbody>
+	</table>
+	<h1>C2000Ware 26.01.00.00</h1>
+	<h2>Table of Contents</h2>
+	<div id="TOC">
+	<ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#documentation">Documentation</a>
+            <ul>
+                <li><a href="#devices">Devices</a></li>
+                <li><a href="#libraries">Libraries</a></li>
+            </ul>
+        </li>
+        <li><a href="#whats-new">What's New</a>
+		<ul>
+            <li><a href="#section-26.01.00.00">26.01.00.00</a></li>
+        </ul>
+		</li>
+        <li><a href="#revision-history">Revision History</a><ul>
+
+            <li><a href="#section-26.00.00.00">26.00.00.00</a></li>
+            <li><a href="#section-6.00.01.00">6.00.01.00</a></li>
+            <li><a href="#section-6.00.00.00">6.00.00.00</a></li>
+            <li><a href="#section-5.05.00.00">5.05.00.00</a></li>
+
+            <li><a href="#section-5.04.00.00">5.04.00.00</a></li>
+
+            <li><a href="#section-5.03.00.00">5.03.00.00</a></li>	
+
+			<li><a href="#section-5.02.00.00">5.02.00.00</a></li>	
+			
+			<li><a href="#section-5.01.00.00">5.01.00.00</a></li>	
+			
+			<li><a href="#section-5.00.00.00">5.00.00.00</a></li>
+			
+			<li><a href="#section-4.03.00.00">4.03.00.00</a></li>
+			
+			<li><a href="#section-4.02.00.00">4.02.00.00</a></li>
+		
+			<li><a href="#section-4.01.00.00">4.01.00.00</a></li>
+		
+			<li><a href="#section-4.00.00.00">4.00.00.00</a></li>
+			
+            <li><a href="#section-3.04.00.00">3.04.00.00</a></li>
+                    
+            <li><a href="#section-3.03.00.00">3.03.00.00</a></li>
+                    
+            <li><a href="#section-3.02.00.00">3.02.00.00</a></li>
+                    
+            <li><a href="#section-3.01.00.00">3.01.00.00</a></li>
+                    
+            <li><a href="#section-2.01.00.00">2.01.00.00</a></li>
+                    
+            <li><a href="#section-2.00.00.03">2.00.00.03</a></li>
+                    
+            <li><a href="#section-2.00.00.02">2.00.00.02</a></li>
+                    
+            <li><a href="#section-2.00.00.01">2.00.00.01</a></li>
+                    
+            <li><a href="#section-1.00.05.00">1.00.05.00</a></li>
+                    
+            <li><a href="#section-1.00.04.00">1.00.04.00</a></li>
+                    
+            <li><a href="#section-1.00.03.00">1.00.03.00</a></li>
+                    
+            <li><a href="#section-1.00.02.00">1.00.02.00</a></li>
+                    
+            <li><a href="#section-1.00.01.00">1.00.01.00</a></li>
+                    
+            <li><a href="#section-1.00.00.00">1.00.00.00</a></li>
+                    
+                                 
+    </ul>
+    </div>
+    
+    <h2 id="introduction"><a href="#introduction">Introduction</a></h2>
+        <p>This is 26.01.00.00 of C2000Ware. This HTML will provide a list of 
+           the version and paths for the devices and software libraries in 
+           C2000ware directory.
+        </p>       
+    
+    <h2 id="documentation"><a href="#documentation">Documentation</a></h2>   
+        <h3 id="libraries">Software Libraries</h3>
+    <table><thead><tr class="header">
+    <th align="left">Library</th>
+    <th align="left">Version</th>
+    <th align="left">Location</th></tr></thead>
+        <tbody><tr class="odd">
+        <td align="left">HRCAP Calibration</td>
+        <td align="left">1.11.00.00</td>
+        <td align="left">/libraries/calibration/hrcap</td></tr>
+	    <tbody><tr class="odd">
+        <td align="left">IQmath</td>
+        <td align="left">1.70.00.00</td>
+        <td align="left">/libraries/math/IQmath/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">Fixed Point DSP</td>
+        <td align="left">1.30.00.00</td>
+        <td align="left">/libraries/dsp/FixedPoint/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">SGEN</td>
+        <td align="left">1.03.00.00</td>
+        <td align="left">/libraries/dsp/SGEN/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">VCU</td>
+        <td align="left">2.30.00.00</td>
+        <td align="left">/libraries/dsp/VCU/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">PMBus</td>
+        <td align="left">1.11.00.00</td>
+        <td align="left">/libraries/communications/PMBus/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">Digital Controller Library</td>
+        <td align="left">3.07.00.00</td>
+        <td align="left">/libraries/control/DCL/c28</td></tr>
+		<tbody><tr class="odd">
+        <td align="left">Feature Extract Library</td>
+        <td align="left">1.02.00.00</td>
+        <td align="left">/libraries/ai/common/feature_extract</td></tr>
+		<tbody><tr class="odd">
+        <td align="left">Target Host Communictation Protocol Library</td>
+        <td align="left">1.00.00.00</td>
+        <td align="left">/libraries/ai/target_host_comm_protocol/</td></tr>		
+        <tbody><tr class="odd">
+        <td align="left">FPU</td>
+        <td align="left">2.14.00.00</td>
+        <td align="left">/libraries/dsp/FPU/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">FPU Fast RTS</td>
+        <td align="left">2.10.00.00</td>
+        <td align="left">/libraries/math/FPUfastRTS/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">LWIP</td>
+        <td align="left">2.1.2</td>
+        <td align="left">/libraries/communications/Ethernet/third_party/lwip</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">PTPD</td>
+        <td align="left">2.2.1</td>
+        <td align="left">/libraries/communications/Ethernet/third_party/ptpd</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">CLAmath</td>
+        <td align="left">4.06.00.00</td>
+        <td align="left">/libraries/math/CLAmath/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">FASTINTDIV</td>
+        <td align="left">1.06.00.00</td>
+        <td align="left">/libraries/math/FASTINTDIV/c28</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">SFO Library</td>
+        <td align="left">8.00.00.00</td>
+        <td align="left">/libraries/calibration/hrpwm/</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F28p65x USB Library</td>
+        <td align="left">6.01.00.00</td>
+        <td align="left">/libraries/communications/usb/f28p65x</td></tr>
+		<tbody><tr class="odd">
+        <td align="left">F28p55x USB Library</td>
+        <td align="left">6.01.00.00</td>
+        <td align="left">/libraries/communications/usb/f28p55x</td></tr>
+		<tbody><tr class="odd">
+        <td align="left">F2838x USB Library</td>
+        <td align="left">6.01.00.00</td>
+        <td align="left">/libraries/communications/usb/f2838x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2806x USB Library</td>
+        <td align="left">4.00.00.00</td>
+        <td align="left">/libraries/communications/usb/f2806x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2807x USB Library</td>
+        <td align="left">6.01.00.00</td>
+        <td align="left">/libraries/communications/usb/f2807x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2837xD USB Library</td>
+        <td align="left">6.01.00.00</td>
+        <td align="left">/libraries/communications/usb/f2837xd</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2837xS USB Library</td>
+        <td align="left">6.01.00.00</td>
+        <td align="left">/libraries/communications/usb/f2837xs</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F28002x Flash API</td>
+        <td align="left">1.57.00.00	</td>
+        <td align="left">/libraries/flash_api/f28002x/</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2838x C28x Flash API</td>
+        <td align="left">1.60.00.00</td>
+        <td align="left">/libraries/flash_api/f2838x/c28x/</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2838x CM Flash API</td>
+        <td align="left">1.60.00.00</td>
+        <td align="left">/libraries/flash_api/f2838x/cm/</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2837xD Flash API</td>
+        <td align="left">1.54.01.00</td>
+        <td align="left">/libraries/flash_api/f2837xd</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2807x Flash API</td>
+        <td align="left">1.54.00.00</td>
+        <td align="left">/libraries/flash_api/f2807x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2837xS Flash API</td>
+        <td align="left">1.55.01.00</td>
+        <td align="left">/libraries/flash_api/f2837xs</td></tr>
+		<tbody><tr class="odd">
+        <td align="left">F28003x Flash API</td>
+        <td align="left">1.58.10.00</td>
+        <td align="left">/libraries/flash_api/f28003x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F280033_34 Flash API</td>
+        <td align="left">1.58.11.00</td>
+        <td align="left">/libraries/flash_api/f28003x</td></tr>
+        <td align="left">F28004x Flash API</td>
+        <td align="left">1.56.02.00</td>
+        <td align="left">/libraries/flash_api/f28004x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2802x Flash API</td>
+        <td align="left">2.01.00.00</td>
+        <td align="left">/libraries/flash_api/f2802x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2803x Flash API</td>
+        <td align="left">1.00.00.00</td>
+        <td align="left">/libraries/flash_api/f2803x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2805x Flash API</td>
+        <td align="left">1.00.00.00</td>
+        <td align="left">/libraries/flash_api/f2805x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2806x Flash API</td>
+        <td align="left">1.00.00.00</td>
+        <td align="left">/libraries/flash_api/f2806x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2823x Flash API</td>
+        <td align="left">2.10.00.00</td>
+        <td align="left">/libraries/flash_api/f2823x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2833x Flash API</td>
+        <td align="left">2.10.00.00</td>
+        <td align="left">/libraries/flash_api/f2833x</td></tr>
+        <tbody><tr class="odd">		
+        <td align="left">F2838x Ethercat</td>
+        <td align="left">2.03.00.00</td>
+        <td align="left">/libraries/communications/Ethercat/f2838x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F2838x EtherCAT Slave Demo Installer</td>
+        <td align="left">2.02.00.00</td>
+        <td align="left">libraries/communications/Ethercat/f2838x/ethercat_slave_ssc_and_demo_setup.exe</td></tr>
+        <tbody><tr class="odd">		
+        <td align="left">F28P65x Ethercat</td>
+        <td align="left">1.03.00.00</td>
+        <td align="left">/libraries/communications/Ethercat/f28p65x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F28P65x EtherCAT Slave Demo Installer</td>
+        <td align="left">1.02.00.00</td>
+        <td align="left">libraries/communications/Ethercat/f28p65x/ethercat_slave_ssc_and_demo_setup.exe</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">FatFS	</td>
+        <td align="left">R0.13a</td>
+        <td align="left">libraries/fatfs</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">SDL</td>
+        <td align="left">6.01.00.00</td>
+        <td align="left">/libraries/diagnostic</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">Crypto AES</td>
+        <td align="left">2.00.00.00</td>
+        <td align="left">/libraries/security/crypto/c28/aes</td></tr>
+        <td align="left">Crypto SHA</td>
+        <td align="left">2.00.00.00</td>
+        <td align="left">/libraries/security/crypto/c28/sha</td></tr>
+        <td align="left">Crypto RSA</td>
+        <td align="left">1.00.00.00</td>
+        <td align="left">/libraries/security/crypto/c28/rsa</td></tr>
+        <td align="left">F280013x Flash API</td>
+        <td align="left">2.00.10.00</td>
+        <td align="left">/libraries/flash_api/f280013x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F280015x Flash API</td>
+        <td align="left">2.00.10.00</td>
+        <td align="left">/libraries/flash_api/f280015x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F28P65x Flash API</td>
+        <td align="left">3.00.02.00</td>
+        <td align="left">/libraries/flash_api/f28p65x</td></tr>
+		<tbody><tr class="odd">
+        <td align="left">F28P55x Flash API</td>
+        <td align="left">4.00.00.00</td>
+        <td align="left">/libraries/flash_api/f28p55x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F28E12x Flash API</td>
+        <td align="left">5.00.00.00</td>
+        <td align="left">/libraries/flash_api/f28e12x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">F28P551x Flash API</td>
+        <td align="left">6.00.00.00</td>
+        <td align="left">/libraries/flash_api/f28p551x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">FreeRTOS Demo </td>
+        <td align="left">1.0.0</td>
+        <td align="left">kernel/FreeRTOS/Demo</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">FreeRTOS Kernel </td>
+        <td align="left">11.2.0</td>
+        <td align="left">kernel/FreeRTOS/Source</td></tr> 
+		<tbody><tr class="odd">
+        <td align="left">FreeRTOS Heap</td>
+        <td align="left">11.2.0</td>
+        <td align="left">kernel/FreeRTOS/Source/portable/MemMang</td></tr>
+		</tbody>
+		</table>     
+        
+        <h3 id="devices">Device Support</h3>
+    <table><thead><tr class="header">
+    <th align="left">Device</th>
+    <th align="left">Version</th>
+    <th align="left">Location</th></tr></thead>
+        <tbody><tr class="odd">
+        <td align="left">f2807x</td>
+        <td align="left">3.22.00.00</td>
+        <td align="left">/device_support/f2807x</td></tr>
+            <tbody><tr class="odd">
+            <td align="left">f2807x</td>
+            <td align="left">26.01.00.00</td>
+            <td align="left">/driverlib/f2807x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2837xd</td>
+        <td align="left">3.22.00.00</td>
+        <td align="left">/device_support/f2837xd</td></tr>
+            <tbody><tr class="odd">
+            <td align="left">f2837xd</td>
+            <td align="left">26.01.00.00</td>
+            <td align="left">/driverlib/f2837xd</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2837xs</td>
+        <td align="left">3.22.00.00</td>
+        <td align="left">/device_support/f2837xs</td></tr>
+            <tbody><tr class="odd">
+            <td align="left">f2837xs</td>
+            <td align="left">26.01.00.00</td>
+            <td align="left">/driverlib/f2837xs</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2802x</td>
+        <td align="left">3.06.00.00</td>
+        <td align="left">/device_support/f2802x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2802x0</td>
+        <td align="left">3.06.00.00</td>
+        <td align="left">/device_support/f2802x0</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2803x</td>
+        <td align="left">2.06.00.00</td>
+        <td align="left">/device_support/f2803x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2805x</td>
+        <td align="left">2.05.00.00</td>
+        <td align="left">/device_support/f2805x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2806x</td>
+        <td align="left">2.08.00.00</td>
+        <td align="left">/device_support/f2806x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2823x</td>
+        <td align="left">2.06.00.00</td>
+        <td align="left">/device_support/f2823x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2833x</td>
+        <td align="left">2.05.00.00</td>
+        <td align="left">/device_support/f2833x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f28002x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f28002x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f28002x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/driverlib/f28002x</td></tr>
+		<tbody><tr class="odd">
+        <td align="left">f28003x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f28003x</td></tr>
+            <tbody><tr class="odd">
+            <td align="left">f28003x</td>
+            <td align="left">26.01.00.00</td>
+            <td align="left">/driverlib/f28003x</td></tr>	
+        <tbody><tr class="odd">
+        <td align="left">f28004x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f28004x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f28004x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/driverlib/f28004x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f2838x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f2838x</td></tr>
+		<tbody><tr class="odd">
+		<td align="left">f2838x</td>
+		<td align="left">26.01.00.00</td>
+		<td align="left">/driverlib/f2838x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f280013x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f280013x</td></tr>
+		<tbody><tr class="odd">
+		<td align="left">f280013x</td>
+		<td align="left">26.01.00.00</td>
+		<td align="left">/driverlib/f280013x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f280015x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f280015x</td></tr>
+		<tbody><tr class="odd">
+		<td align="left">f280015x</td>
+		<td align="left">26.01.00.00</td>
+		<td align="left">/driverlib/f280015x</td></tr>
+        <tbody><tr class="odd">
+        <td align="left">f28p65x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f28p65x</td></tr>
+		<tbody><tr class="odd">
+		<td align="left">f28p65x</td>
+		<td align="left">26.01.00.00</td>
+		<td align="left">/driverlib/f28p65x</td></tr>	
+        <tbody><tr class="odd">
+        <td align="left">f28p55x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f28p55x</td></tr>
+		<tbody><tr class="odd">
+		<td align="left">f28p55x</td>
+		<td align="left">26.01.00.00</td>
+		<td align="left">/driverlib/f28p55x</td></tr>	
+        <tbody><tr class="odd">
+        <td align="left">f28e12x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f28e12x</td></tr>
+		<tbody><tr class="odd">
+		<td align="left">f28e12x</td>
+		<td align="left">26.01.00.00</td>
+		<td align="left">/driverlib/f28e12x</td></tr>	
+        <tbody><tr class="odd">
+        <td align="left">f28p551x</td>
+        <td align="left">26.01.00.00</td>
+        <td align="left">/device_support/f28p551x</td></tr>
+		<tbody><tr class="odd">
+		<td align="left">f28p551x</td>
+		<td align="left">26.01.00.00</td>
+		<td align="left">/driverlib/f28p551x</td></tr>		
+    </tbody></table>
+
+    <h2 id="whats-new"><a href="#whats-new">What's New</a></h2>
+        <h3 id="section-26.01.00.00"><a href="#section-26.01.00.00">26.01.00.00</a></h3>
+	    <div class="info">
+		<ul>
+            <li>Support for F28P551x device - driverlib, bit field headers and examples
+            <li>Safety Diagnostic Library on F28P551x </li>
+            <li>FreeRTOS demos on F28P551x </li>
+            <li>Libraries updated to add support for F28P551x
+            <ul>
+            <li>FPU DSP</li>
+            <li>IQMath Library</li>
+            <li>Fixed Point DSP Library</li>
+            <li>Digital Control Library (DCL)</li>
+            <li>PMBus Slave Communication Stack Library</li>
+            <li>VCRC Library</li>
+            <li>CLAmath Librar</li>
+            </ul>
+            </li>
+        <li>SysConfig support for F28P551x</li>
+        <li>DCSM Tool and example for F28P551x</li>
+        <li>Boot ROM for F28P551x - Source code and symbol library</li>
+        <li>Academy examples for F28P551x</li>
+        <li>Updated Flash API for F28P551x</li>
+        
+        <li>
+            Update structure for C28x crypto libs
+            <p>libraries/security/crypto/c28/</p>
+            <div class="tree">
+                ├── aes/ - AES encryption<br>
+                ├── rsa/ - RSA encryption<br>
+                ├── ecdsa/ - ECDSA signatures<br>
+                ├── sha/ - SHA hashing<br>
+                ├── middleware/ - mcuboot core files<br>
+                ├── examples/ - Device wise examples<br>
+                ├── signing_tools/ - mcuboot signing scripts<br>
+                └── docs/ - Documentation
+            </div>
+        </li>
+        <li>Asymmetric Secure Boot for F28P55x
+            <ul>
+                <li>Supports Mcuboot based secure boot with ECDSA384 signature.</li>
+            </ul>
+        </li>
+        <li>MCUBoot based Asymmetric Secure Firmware Update for F28P55x (ECDSA384 signature based).</li>
+        <li>Addition of mcuboot secure boot signing tools</li>
+        <li>Clinic/transfer tool enhancements</li>
+        <li>
+            New Examples
+            <ul>
+                <li>SHA512 and ECDSA384 examples added for F28P55x in crypto libs.</li>
+                <li>Alternative extended clock stretching I2C controller and target examples on F28P551x</li>
+                <li>Empty CLA driverlib example</li>
+                <li>SPI/DMA loopback driverlib example on F2837xD, F2837xS, and F2807x</li>
+                <li>MCUBoot based SecureBoot for F28P55x in crypto libs.
+                <ul>
+                <li>mcuBoot_boot_manager(Based on opensource mcbuboot bootloader)</li>
+                <li>mcuBoot_test_app (integrated with mcuboot signing)</li>
+                </ul>
+                </li>
+                <li>MCUBoot based Secure Firmware Update in crypto libs.-
+                <ul>
+                <li>mcuBoot_boot_manager (Based on opensource mcbuboot bootloader)</li>
+                <li>mcuBoot_test_app (integrated with mcuboot signing)</li>
+                <li>flash_programmer_application_UART (application to flash the new firmware. Part of firmware update process)</li>
+                </ul>
+            </li>
+            </ul>
+        </li>
+    </ul>
+    <h2 id="revision-history"><a href="#revision-history">Revision History</a></h2> 
+        <h3 id="section-26.00.00.00"><a href="#section-26.00.00.00">26.00.00.00</a></h3>
+	    <div class="info">
+		<ul>
+            <li>New AI Examples on F28003x,F28004x,F28P55x and F28P65x
+            <ul>
+            <li>Arc Fault </li>
+            <li>Blower Imbalance</li>
+            <li>Fan Blade Anomaly Detection</li>
+            <li>Generic Timeseries - Anomaly Detection, Classification , Regression, Forecasting</li>
+            <li>Motor Fault</li>
+            <li>Torque Measurement</li>
+            <li>Forecasting PMSM Motor Temp</li>
+            <li>HVAC Indoor Temp Forecast</li>
+            <li>Washing machine load weighing</li>
+            </ul>
+            </li>
+        <li>Safety Diagnostic Library for F28E12x</li>
+        <li>Added support for SHA512</li>
+        <li>Compiler migration to C2000 CGT-22.6.3.LTS</li>
+		<li>Bugs Fixes:
+            <ul>
+            <li>Bug in Driverlib API for XLINK'ing XLOAD registers.</li>
+            <li>C2000Ware source uses inconsistent type definitions and should only use stdint.h .</li>
+            <li>Disabling/Enabling TBCLKSYNC clock is not getting reflected in device.c generated by SYSCFG..</li>
+            <li>Bug report on syscfg auto generated code regarding ADC Voltage reference .</li>
+            <li>F28P55x and F28P65x CLA sysconfig generated memcpy needs offset address for LS8 & LS9 .</li>
+            <li>SysConfig F2837x Device Support uses incorrect EMIF clock define.</li>
+            <li>Warnings arise in the cmd file for CPU-to-CLA1 message RAM </li>
+            <li>ASysCtl_enableGPIOInputBuffer() API has incorrect ASSERT check</li>
+            <li> Interrupt.h is not functional for compiler version >22.6.2</li>
+            <li>HRPWM_setSyncOutPulseMode is wrongly mapped EPWM_setSyncOutPulseMode</li>
+            </ul>
+        </li>       
+        </ul>    
+
+        <h3 id="section-6.00.01.00"><a href="#section-6.00.01.00">6.00.01.00</a></h3>
+	    <div class="info">
+		<ul>
+            <li>New Examples:
+            <ul>
+            <li>F28003x : Classic CAN communication using MCAN and MCAN Rx/RX </li>
+            <li>F28P55x:  LFU Examples and added LFU support for SCI Flash Kernel</li>
+            </ul>
+        </li>
+		<li>Bugs Fixes:
+            <ul>
+            <li>Update the setclock function for the HPLL relocking issue on F28E12x.</li>
+            <li>Incorrect order of operations in SysCtl_setClock() for F28004x.</li>
+            <li>CM CLK dividers not picking correctly from clocktree in the generated device.c file for F2838x.</li>
+            <li>CLBINPUTXBAR signal missing from sysconfig and driverlib for F28003x.</li>
+            <li>Update the default LSP clk divider value in clocktree for f280013x device.</li>
+            <li>Update CM NMI handler in F2838x driverlib examples.</li>
+            </ul>
+            </li>
+        </ul>
+
+        <h3 id="section-6.00.00.00"><a href="#section-6.00.00.00">6.00.00.00</a></h3>
+	    <div class="info">
+		<ul>
+            <li>Support for F28E12x device 
+            <ul>
+                <li>driverlib, bit field headers and examples.</li>
+                <li>Libraries updated to add support for F28E12x.
+                <ul>
+                    <li>FPU DSP and FPU FastRTS Library.</li>
+                    <li>IQMath Library.</li>
+                    <li>Fixed Point DSP Library.</li>
+                    <li>Digital Control Library (DCL).</li>
+                </ul>
+            <li>SysConfig support for F28E12x.</li>
+            <li>DCSM Tool and example for F28E12x.</li>
+            <li>Boot ROM for F28E12x.</li>
+            <li>Academy examples for F28E12x.</li>
+            <li>Updated Flash API for F28E12x</li>
+            <li>FreeRTOS Examples for F28E12x</li>
+        </ul>
+        <li> Support of lwIP on FreeRTOS is added for F2838x devices - udp_server, tcp_server and tcp iperf examples are added.</li> 
+		<li>FreeRTOS - Port Update - RTOS SW (Yield) interrupt is now mapped to a separate PIE interrupt vector</li>
+		<li>MCU Control Center Clinic (BETA) version diagnoses invalid device/peripheral configurations at runtime by checking device register settings against Errata conditions.</li>			
+		</ul>
+        <h3 id="section-5.05.00.00"><a href="#section-5.05.00.00">5.05.00.00</a></h3>
+	    <div class="info">
+		<ul>  
+        <li>Ported FreeRTOS kernel to v11.2.0</li>
+        <li>Migrated to Compiler v22.6.2.LTS included in CCS 20.2.0 release</li>
+        <li>JTAGLOCK programming support enabled for F28004x, F2837xD and F2837xS.</li>
+        <li>Generic Feat Ext Lib that integrates with Tiny ML Modelmaker 1.0</li>
+        <li> The MCU Signal Sight (BETA) version has been added to the MCU Mission Control tool in Sysconfig. It enables real-time data plotting and analysis capabilities through GUI composer, all within the CCS environment.
+            A software example showing how to use this tool is found in driverlib/examples/c28x/transfer/transfer_signalsight_basic_demo. 
+            Devices supported by this tool include: F28P55x, F28P65x, F280015x, F280013x, F28003x, F28002x, F2838x, F28004x
+        </li> 
+		<li>New Examples
+		<ul>
+			<li>HRPWM phase shift Control in Up-down Counter Mode with SFO</li>
+			<li>HRPWM DB HR Control with SFO in Up-down count mode</li>
+            <li>LaunchXL F28P55x - Launchpad Out of Box Demo Example</li>
+		</ul>
+		</li>	
+		</ul> 
+        <h3 id="section-5.04.00.00"><a href="#section-5.04.00.00">5.04.00.00</a></h3>
+	    <div class="info">
+		<ul>  
+		<li>AI enabler libraries (feature extraction and host-comms protocol) - for AI specific applications 
+		<ul>
+			<li>Feature extraction library contains source code for the feature extraction process to be used in neural network (NN)/AI based user applications. The library contains three example projects to demonstrate its use in user specific applications (eg. Arc fault detection, Motor fault classification)</li>
+			<li>Target-Host communication library contains the source code that implements a host (GUI)-target (MCU) communication protocol, also known as a "device agent".  This can be used while executing any AI based application. This library also contains an example to demonstrate its use.</li>
+		</ul>
+		</li>		
+		<li>New Examples
+		<ul>
+			<li>EtherCAT CiA402 example on F28P65x</li>
+			<li>HRPWM duty control, AHC example on all gen3 devices (F2837xS, F2837xD, F2807x, F2838x, F28002x, F28003x, F28004x, F280013x, F280015x, F28P65x, F28P55x)</li>
+			<li>MCU Mission Control
+			<ul>
+				<li>Transfer_rtlog uses FSI to export data out of a device.</li>
+				<li>transfer_comslogger_rtlog_export_sci interprets the incoming FSI data frame and helps visualize the data through SCI to the PC using GUI Composer </li>
+			</ul>
+			</li>
+		</ul>
+		</li>	
+		<li>Removed ECDSA library support from C2000Ware.  There is another  optimized library  that customers can request access and this is available through restricted secure download</li>
+		<li>Updated BootROM Symbols (secure zone and safe zone) for F28P65x device - VCU option is correctly mapped to VCRC for F28P65x device</li>
+		<li>Added a script to create 128-bit aligned blocks in SCI8-formatted hex files when the application image contains a CMAC key generated by the C2000 Hex Utility. This avoids Flash API programming errors when programming such application images.</li>
+		<li>Support for Sysconfig v1.21
+		<ul>
+		<li>Device/board selection is based on part numbers that are in synch with product names as they appear on www.ti.com.
+		<br>User may be asked to select specific part name that matches their device.</li>
+		</ul>
+		</li>
+		</ul>
+        <h3 id="section-5.03.00.00"><a href="#section-5.03.00.00">5.03.00.00</a></h3>
+	    <div class="info">
+		<ul>  
+		<li>Support for F28P55x Launchpad - driverlib examples </li>
+		<li>SFO library fix for F28P65x. Example implementation is changed for HRPWM. Now each HRPWM module should be calibrated separately. </li>
+		<li>FreeRTOS demo for F2837xs and F28004x </li>
+		<li>New Examples
+		<ul>
+			<li>MCAN Timestamping functionality on F2838x, F28003x,F28P55x , F28P65x and F280015x </li>
+			<li>ADC Trigger Repeater Oversampling on F28P55x</li>
+			<li>ADC Trigger Repeater Undersampling on F28P55x</li>
+			<li>ADC Fast Oversampling on F28P65x</li>
+			<li>Secure boot examples for F28P65x</li>
+			<li>CAN Flash kernel on F28P55x.</li>
+			<li>AES CBC Encryption and Decryption , AES CMAC Authentication example on F28003x, F28P55x , F28P65x</li>
+			<li>ePWM Minimum Deadband and ICL on F28P65x</li>
+			<li>EtherCAT - CPU1 EEPROM EMU and DC Demo on  F28P65x</li>
+		</ul>
+		</li>
+		<li>Support for Sysconfig v1.21
+		<ul>
+		<li>Device/board selection is based on part numbers that are in synch with product names as they appear on www.ti.com.
+		<br>User may be asked to select specific part name that matches their device.</li>
+		</ul>
+		</li>
+		</ul>
+		<div class="info">
+		<p><strong>Note 1:</strong> "device_cal" function address is different for different revisions of the F28P55x device. If the revision ID (value at address 0x5D00C) is "1" then define the REV_ID as a predefined symbol in the projectspec (Add "--define=REV_ID=1" in the compiler flags, which correspond to REV0). For REVID as REVA, the value will be 2, which is the default value in the package.</p>
+		<p><strong>Note 2:</strong> I2C config name change in SysConfig : "OwnTargetAddress" has been renamed to "OwnAddress". Any .syscfg file which uses the older name has to be updated to use this new name (i2cx.ownTargetAddress to i2cx.OwnAddress)</p>
+		<p><strong>Note 3:</strong> The TINIE naming is to be updated to NPU in driverlib functionalities/macros for F28P55x device for previous SDKs.</p>
+		</div>
+	   <h3 id="section-5.02.00.00"><a href="#section-5.02.00.00">5.02.00.00</a></h3>
+	    <div class="info">
+		<p><strong>Note:</strong>The minimum version of Code Composer Studio required is CCSv12.7 and compiler version is 22.6.1.LTS</p>
+		</div>
+		<ul>  
+		<li>Support for F28P55x device - driverlib, bit field headers ,libraries, examples and c2k_academy training modules  </li>
+		<li>Software Diagnostic Library for F28P65x and F28P55x</li>
+		<li>FreeRTOS ROV Support (CCS Theia IDE only)</li>
+		
+		<li>New Examples on F28P65x
+		<ul>
+			<li>DCAN Flash kernel example on F280015x and F28P65x</li>
+			<li>SCI Flash kernel and host programmer support for F28P55x</li>
+			<li>LIN SCI-Compatibility Mode (Single Buffer) Internal Loopback with DMA on F28002x, F28003x, F28004x, F28P65x and F28P55x</li>
+			<li>EEPROM Emulation example on F28003x</li>
+			<li>SYSCTL - Missing clock detection on F2807x, F2837xs and F2837xD</li>
+			<li>I2C Clock stretching example on F28P55x.</li>
+			<li>CLB examples  ported  to F28P65x</li>
+			<li>Flash 128-bit and 512-bit programming examples on F28P65x and F28P55x</li>
+		</ul>
+		</li>
+		<li>C2K Academy - Added FSI Lab on F28002x, F28003x, F28004x , F2838x and F28P65x</li>
+		<li>F28P65x flash API V3.00.02.00 (F28P65x flash API V3.00.01.00 did not support 512-bit programming on Bank 4)</li>
+		<li>F28P55x flash API V4.00.00.00</li>
+		<li>SysConfig 
+		<ul>
+			<li>Redesigned Safety checker on F28P65x </li>
+			<li>Enhanced clocktree integration for communications peripherals</li>
+			<li>LIN module- SCI Mode support, Improved configurability, Automatic baud rate error calculation, DMA support</li>
+			<li>UART module - DMA support</li>
+			<li>PMBus module - Added Fast Mode Plus  and Zero hold time configuration</li>
+			<li>FreeRTOS- Updated config macros, greater customization of task & heap, ROV support  (CCS Theia IDE only)</li>
+		</ul>		
+		</li>
+		</ul>
+	   <h3 id="section-5.01.00.00"><a href="#section-5.01.00.00">5.01.00.00</a></h3>
+	    <div class="info">
+		<p><strong>Note:</strong>The minimum version of Code Composer Studio required is CCSv12.4 and compiler version is 22.6.0.LTS</p>
+		</div>
+		<ul>  
+		<li>Support for F28P65x device - driverlib, bit field headers ,libraries, Flash API,  examples and c2k_academy training modules </li>
+		<li>FreeRTOS demo on F28P65x</li>
+		<li>New Examples on F28P65x
+		<ul>
+			<li>ADC - Over Sampling , Under Sampling and Safety Checker examples</li>
+			<li>CLA RAM LS8 / LS9 example (CLA program memory or C28 memory)</li>
+			<li>ECAP - Signal Monitoring example</li>
+			<li>EEPROM Emulation example</li>
+			<li>MCAN and SCI Flash Kernel examples</li>
+			<li>UART Loopback examples with Interrupt and DMA</li>
+			<li>Added bitfield examples for CLA, I2C and SPI</li>
+		</ul>
+		</li>
+		<li>MCAN - Example to Receive High Priority Message and example demonstrating usage of Tx Event FIFO added for F28003x,F2838x,F280015x and ,F28P65x.</li>
+		<li> DCAN Flash kernel example on F28003x</li>
+		<li>EtherCAT - Launchpad and CPU2 support for F28P65x</li>
+		<li>Updated Flash API for F280013x, F280015x , F280033_34 and F28P65x<li>
+		<li>Security: Added support for RSA PKCS1 v1_5 sign/verify </li>
+		</ul>		
+	
+		<h3 id="section-5.00.00.00"><a href="#section-5.00.00.00">5.00.00.00</a></h3>
+	    <div class="info">
+		<p><strong>Note:</strong>The minimum version of Code Composer Studio required is CCSv12.4 and compiler version is 22.6.0.LTS</p>
+		</div>
+		<ul>  
+		<li>Support for F28P65x device - driverlib, bit field headers ,libraries, Flash API,  examples and c2k_academy training modules </li>
+		<li>FreeRTOS demo on F28P65x</li>
+		<li>CLB Tool remodeled 
+		<ul>
+			<li>Added error message for type 0 and type 1 HLC (back-to-back PUSH/PULL or PULL/PUSH when there is more than one event)</li>
+			<li>Added warning when either synchronization or input pipeline filter are not enabled for a CLB input</li>
+			<li>Updated display names, descriptions; added lock/hide feature, multi-line user description comments, and output override signal name</li>
+			<li>Updated CLB simulation trace names, added new traces for different submodules, added custom waveform input, and added AOC to simulation</li>
+			<li>Added Mac/Linux support for building the CLB simulation output file</li>
+		</ul>
+		</li>
+		<li>IQMath - Source code included in the C2000Ware release package.</li>
+		<li>New Examples
+		<ul>
+			<li>EPWM Examples for XCMP, Diode Emulation and Minimum Deadband </li>
+			<li>Flash SCI kernel  for F280015x</li>
+			<li>LaunchPAD example for F280013x and F280015x</li>
+			<li>Empty bitfield projects for F280013x and F280015x</li>	
+		</ul>	
+		</li>
+		<li>Software Diagnostic Library - Added support for F280013x and F280015x</li>
+		<li>DCSM Tool for F28P65x</li>
+		<li>Flash API support for F28P65x<li>
+		<li>Security: Added support for ECDSA </li>
+		</ul>
+		<h3 id="section-4.03.00.00"><a href="#section-4.03.00.00">4.03.00.00</a></h3>
+		<ul>  
+		<li>Support for F280015x device - driverlib, bit field headers ,libraries, Flash API,  examples and c2k_academy training modules </li>
+		<li>FreeRTOS demo on F280015x</li>
+		<li>New Examples
+		<ul>
+			<li>CLB_AMC_Failsafe Monitor</li>
+			<li>Universal C2000 Project support – One CCS project for all C2000 device families (trivial one-click migration across device families)</li>
+			<li>DMA GSRAM Transfer using high level function</li>
+			<li> Dual core examples on F2837xD and F2838x ported to use SysConfig
+		</ul>
+		</li>
+		<li>Inclusive Terminology Support:
+		<ul>
+			<li>Driverlib files (.c and .h) for all modules except McBsp, CM peripherals on F2838x have been updated to follow inclusive terminology</li>
+			<li>Mapping file "driver_inclusive_terminology_mapping.h"  provided for backward compatbility </li>
+			<li>I2C,FSI, SPI examples updated to use inclusive terminology</li>
+		</ul>
+		</li>
+		<li>SysConfig
+		<ul>
+		<li>Inclusive terminology support added for all devices</li>
+		<li>Multi-Core support</li>
+		<li>DCSM Tool multi-core support for F2837xD</li>
+		<li>CMD Tool multi-core support</li>
+		<li>Control Card board component support</li>
+		<li>ClockTree support</li>
+		</ul>
+		</li>
+		<li>DCSM Tool for F280015x</li>
+		<li>Security: Added support for RSASSA PSS </li>
+		<li>Ported IPC driverlib examples from F2838x to F2837xD</li>
+		<li>Driverlib Improvements
+		<ul> 
+		<li>setPLLSysClk function - The user should specify the exact divider value which is needed to be configured to generate the system clock.</li>
+		<li>Misra C fixes in the driverlib</li>
+		</ul>
+		</li>		
+		
+		<h3 id="section-4.02.00.00"><a href="#section-4.02.00.00">4.02.00.00</a></h3>
+		<ul>  
+		<li>Support for F280013x device - driverlib, bit field headers ,libraries, Flash API,  SCI Flash kernel, examples and c2k_academy training modules </li>
+		<li>FreeRTOS kernel  for C28x and demos on F2838x, F28002x, F28003x and F280013x</li>
+		<li>Software Diagnostic Library for F28003x</li>
+		<li>Flash API Functional Safety Quality v1.58.10 for F28003x</li>
+		<li>New Examples
+		<ul>
+			<li>MCAN - Receive message in multiple buffer</li>
+			<li>EtherCAT - FoE example for C28x and CM</li>
+			<li>CLB  - Cyclic Redundancy check, TDM Serial Port and LED Driver</li>
+			<li>EPWM - Global load use case</li>
+			<li>GPIO - Interrupt SysConfig based</li>
+		</ul>
+		</li>
+		<li>SYSCFG
+		<ul>
+		<li> Added support for following peripherals- EMIF and FLASH</li>
+		<li>FreeRTOS Configuration</li>
+		<li>USB SysConfig Support</li>
+		<li>Linker CMD Tool</li>
+		<li>One-Click Library Support for DCL, DSP and Math libraries</li>
+		<li>Board support expanded for Launchpads to include all board components</li>
+		<li>Interrupt nesting support</li>
+		</ul>
+		</li>
+		<li>DCSM Tool for F280013x</li>
+		<li>CAN Flash Kernel for F28003x</li>
+		<li>All projects  migration to CCSv12.1 and CGT v22.6.0.LTS compiler</li>
+		<li>Naming changes related to MCAN to preserve consistency across devices:
+		<ul>
+			<li>MCAN0_BASE (F2838X) / MCAN_MSG_RAM_BASE (F28003X) -> MCANA_DRIVER_BASE  (Memory Map Address Naming Updated)</li>
+			<li>INT_MCANSS0/1 (F2838X) / INT_MCAN_0/1 (F28003X) -> INT_MCANA_0/1  (Following Naming Updates in the PieVects)</li>
+			<li>INT_MCANSS_ECC_CORR_PLS (F2838X) → INT_MCANA_ECC</li>
+			<li>INT_MCANSS_WAKE_AND_TS_PLS (F2838X) → INT_MCANA_WAKE</li>
+		</ul>
+		</li>
+		<li>Security: AES Software Library
+		<ul>
+			<li>16-bit packed plaintext and key input mode introduced using MEM_PACKED_SPEED_OPT predefined symbol</li>
+			<li>Example provided for the newly introduced 16-bit packed input mode</li>
+			<li>Performance and Memory Details updated for the newly introduced 16-bit packed input mode</li>
+		</ul>
+		</li>
+		<li>Improvements - Misra C fixes in the driverlib</li>
+		</ul>		
+		<h3 id="section-4.01.00.00"><a href="#section-4.01.00.00">4.01.00.00</a></h3>
+		<ul>
+			<li>CLB Type 3 support for F2838x and F28002x</li>
+			<li>DCSM Security tool updates</li>
+			<li>F28002x Launchpad support</li>
+			<li>MCAN (CAN-FD) driver and examples on C28x - F2838x</li>
+			<li>Compiler migration for legacy device (F2802x/3x/6x, F2823x, F2833x) to v20.2.1.LTS</li>
+			<li>Software Diagnostic Library (SDL) v2.01.00</li>
+			<li>Flash API libraries in EABI format are added for F2837xD, F2837xS and F28004x devices</li>
+			<li>New Examples
+			<ul>
+			<li>    ERAD new examples - non-intrusive diagnostics on F28004x,F2838x and F28002x</li>
+			<li>    FSI - PWM sync example on F28002x and F28004x</li>
+			<li>    ACI motor control signal chain benchmark application on F2837xD and F28004x</li>
+			</ul>
+			</li>			
+			</ul>    
+
+		<h3 id="section-4.00.00.00"><a href="#section-4.00.00.00">4.00.00.00</a></h3><ul>
+            <ul>
+			<li>Added support for F28003x device – Driverlib, Bitfield , SysConfig and Libraries updated for F28003x</li>
+			<li>CLB Tool updated for Linking TILE design with CLB Hardware resource</li>
+			<li>Migration of projects to C2000 compiler version v21.6 LTS.</li>
+			<li>Software Diagnostic Library (SDL) v3.00.00 with support for F2838x device</li>
+			<li>Added Training folder containing the lab exercises</li>
+			<li>Added support for PMBus over I2C feature</li>
+			<li>CLAmath : Optimized 256, 512, 1024 FFT assembly routines</li>
+			<li>ACI Motor Control Benchmark: CLA support for F28004x and F2837x demonstrating two execution modes – CLA executing entire control service routine, C28 offloading part of compute to CLA</li>
+			<li>COFF flash API libraries for F2838x C28x and F28002x.</li>
+			<li>Flash Kernels : F2838x, F28002x, F28003x examples</li>
+			<li> Flash usage examples : F28002x ROM Flash API build configuration for Flash API usage example, ECC Test Mode example</li>
+			<li> C2000 Crypto Lib : The AES library under \library\security has now been renamed to crypto as now it includes SHA algorithm support as well.There is a compatibility break in the AES library as the API names have changed. This has been documented in the C2000_Crypto_Library_User_Guide.pdf in the path libraries\security\crypto\c28 </li>
+			<li> Ethernet NDK based example (tcpEchoF2838X) has been descoped from this release as NDK is no longer supported.</li> 
+			</ul>
+    
+
+		<h3 id="section-3.04.00.00"><a href="#section-3.04.00.00">3.04.00.00</a></h3><ul>
+            <li>Updated device f28004x to version 1.12.00.00</li>
+            <li>Updated device f2802x to version 3.04.00.00</li>
+            <li>Updated device f2802x0 to version 3.03.00.00</li>
+            <li>Updated device f2803x to version 2.03.00.00</li>
+            <li>Updated device f2806x to version 2.06.00.00</li>
+            <li>Updated device f2833x to version 2.02.00.00</li>
+            <li>Updated device f2823x to version 2.01.00.00</li>
+            <li>Updated device f2837xd to version 3.12.00.00</li>
+            <li>Updated device f2837xs to version 3.12.00.00</li>
+            <li>Updated device f2807x to version 3.12.00.00</li>
+            <li>Updated device f2838x to version 3.04.00.00</li>
+            <li>Updated device f28002x to version 3.04.00.00</li>
+            <li>Updated library F2838x C28x Flash API to version 1.60.01.00</li>
+            <li>Updated library LWIP to version 2.01.04.00</li>
+            <li>Updated library SDL to version 2.01.00.00</li>
+			<li>CLB Type 3 support for F2838x and F28002x</li>
+			<li>DCSM Security tool updates</li>       
+			<li>F28002x Launchpad support</li>       
+			<li>MCAN (CAN-FD) driver and examples on C28x - F2838x</li> 
+			<li>Compiler migration for legacy device (F2802x/3x/6x, F2823x, F2833x) to v20.2.1.LTS</li>
+			<li>Software Diagnostic Library (SDL) v2.01.00</li>
+			<li>Flash API libraries in EABI format are added for F2837xD, F2837xS and F28004x devices</li>
+			<li>New Examples
+			<ul><li>    ERAD new examples - non-intrusive diagnostics on F28004x,F2838x and F28002x</li>
+			<li>    FSI - PWM sync example on F28002x and F28004x</li>
+			<li>    ACI motor control signal chain benchmark application on F2837xD and F28004x</li>
+			</ul>
+			</li>
+			</ul>
+    
+        <h3 id="section-3.03.00.00"><a href="#section-3.03.00.00">3.03.00.00</a></h3>
+		<ul>
+            <li>Updated device f28004x to version 1.11.00.00</li>
+            <li>Updated device f2837xs to version 3.11.00.00</li>
+            <li>Updated device f2807x to version 3.11.00.00</li>
+            <li>Updated device f2838x to version 3.03.00.00</li>
+            <li>Updated device f28002x to version 3.03.00.00</li>
+            <li>Updated library IQmath to version 1.64.00.00</li>
+            <li>Updated library Fixed Point DSP to version 1.22.00.00</li>
+            <li>Updated library PMBus to version 1.03.00.00</li>
+            <li>Updated library VCU to version 2.21.00.00</li>
+            <li>Updated library Digital Controller Library to version 3.04.01.00</li>
+            <li>Updated library FPU to version 2.04.00.00</li>
+            <li>Updated library FPU Fast RTS to version 2.04.00.00</li>
+            <li>Updated library CLAmath to version 4.03.02.00</li>
+            <li>Updated library Ethercat to version 2.01.00.00</li>
+            <li>Updated library SDL to version 2.00.00.00</li>
+            <li>Updated library FASTINTDIV to version 1.03.00.00</li>
+			<li>CLB Type 2 Support - F28004x/F2838x/F28002x
+				<ul>
+				<li>CLB driver updates for Type 2 features</li>
+				<li>    CLB Tool updates for for Type 2 features</li>
+				</ul>
+			</li>
+			<li>Adding support for Digital Control Library (DCL) v3.4</li>
+			<li>Software Diagnostics Library (SDL) for F28002x</li>
+			<li>CLAMath update to add floor() and ceil() functions, indexed library support</li>
+			<li>EtherCAT example updates for optimization level 2</li>
+			<li>Dual Code Security Module (DCSM) Tool support for F28002x and F28004x</li>
+			<li>C2000 SYSCONFIG support for input/output/EPWM/CLB XBAR's</li>
+			<li>New Examples
+				<ul>
+				<li>    Secure flash boot example on F2838x</li>
+				<li>    CPU1-CPU2 IPC example on F2838x</li>
+				<li>    ADC example to demonstrate EPWM trip through limit detection PPB event on F2838x</li>
+				<li>    LIN examples for F28002x</li>
+				<li>    SCI example - Baud tune via SCI</li>
+				<li>    PMBUS EEPROM example for F28004x</li>
+				<li>    EtherCAT CM CiA402 Example</li>
+				<li>    DCSM tool example for F28004x and F28002x</li>
+			    </ul>
+			</li>
+			<li>Migration to CCS v10.1 and CGT v20.2.1 LTS compiler
+			<li>Moved the legacy pinmap macros to pinmap_legacy.h
+				<ul>
+				<li>The pinmap.h header includes macros for pinmuxing and follows the naming convention as specified in the datasheet. The same is used by the Sysconfig tool as well</li>
+				<li>The old macro names are moved to pinmap_legacy.h header file. Please include this file to use the old macros.</li>
+				</ul>
+			</li>
+			</ul>
+    
+        <h3 id="section-3.02.00.00"><a href="#section-3.02.00.00">3.02.00.00</a></h3><ul>
+            <li>Updated device f28004x to version 1.10.00.00</li>
+            <li>Updated device f2837xd to version 3.10.00.00</li>
+            <li>Updated device f2837xs to version 3.10.00.00</li>
+            <li>Updated device f2807x to version 3.10.00.00</li>
+            <li>Updated device f2838x to version 3.02.00.00</li>
+            <li>Updated device f28002x to version 3.02.00.00</li>
+            <li>Updated library PMBus to version 1.02.01.00</li>
+            <li>Updated library VCU to version 2.20.00.00</li>
+            <li>Updated library LWIP to version 2.01.03.00</li>
+            <li>Updated library PTPD to version 2.02.02.00</li>
+            <li>Updated library Ethercat to version 2.00.03.00</li>
+            <li>Updated library SDL to version 1.00.01.00</li>       <li>F2838x driverlib and examples updated to use 25MHz XTAL clock as default input clock
+</li>       <li>VCRC library and examples for F2838x
+</li>       <li>CLB - input and output xbar support for F28002x and F2838x
+</li>       <li>PMBus software support as per specification v1.2
+</li>       <li>Peripheral examples for SCI, SPI, I2C and GPIO that demonstrated utilization of SYSCONFIG tool for F2838x, F28002x, F28004x and F28x7x
+</li></ul>
+            <h3 id="section-3.01.00.00"><a href="#section-3.01.00.00">3.01.00.00</a></h3><ul>
+            <li>New : Added device f28002x version 3.01.00.00</li>
+            <li>New: Added library SDL version 1.00.00.00</li>
+            <li>Updated device f28004x to version 1.09.00.00</li>
+            <li>Updated device f2837xd to version 3.09.00.00</li>
+            <li>Updated device f2837xs to version 3.09.00.00</li>
+            <li>Updated device f2807x to version 3.09.00.00</li>
+            <li>Updated device f2838x to version 3.01.00.00</li>
+            <li>Updated library IQmath to version 1.63.00.00</li>
+            <li>Updated library PMBus to version 1.02.00.00</li>
+            <li>Updated library Digital Controller Library to version 3.03.00.00</li>
+            <li>Updated library FPU to version 2.03.00.00</li>
+            <li>Updated library FPU Fast RTS to version 2.03.00.00</li>
+            <li>Updated library Ethercat to version 2.00.02.00</li>
+            <li>Updated library FASTINTDIV to version 1.02.00.00</li></ul>
+        <h3 id="section-2.01.00.00"><a href="#section-2.01.00.00">2.01.00.00</a></h3><ul>
+            <li>Updated device f28004x to version 1.08.00.00</li>
+            <li>Updated device f2802x to version 3.03.00.00</li>
+            <li>Updated device f2803x to version 2.02.00.00</li>
+            <li>Updated device f2805x to version 2.02.00.00</li>
+            <li>Updated device f2806x to version 2.05.00.00</li>
+            <li>Updated device f2833x to version 2.01.00.00</li>
+            <li>Updated device f2837xd to version 3.08.00.00</li>
+            <li>Updated device f2837xs to version 3.08.00.00</li>
+            <li>Updated device f2807x to version 3.08.00.00</li>
+            <li>Updated device f2838x to version 2.01.00.00</li>
+            <li>Updated library Fixed Point DSP to version 1.21.00.00</li>
+            <li>Updated library PMBus to version 1.01.00.00</li>
+            <li>New: Added library F2838x Flash API v1.60.00.00</li></ul>
+        <h3 id="section-2.00.00.03"><a href="#section-2.00.00.03">2.00.00.03</a></h3><ul>
+            <li>Updated device f28004x to version 1.07.00.00</li>
+            <li>Updated device f2837xd to version 3.07.00.00</li>
+            <li>Updated device f2837xs to version 3.07.00.00</li>
+            <li>Updated device f2807x to version 3.07.00.00</li>
+            <li>Updated device f2838x to version 2.00.00.03</li>
+            <li>Updated library PMBus to version 1.00.01.00</li>
+            <li>Updated library F2807x USB Library to version 5.00.01.00</li>
+            <li>Updated library F2837xD USB Library to version 5.00.01.00</li>
+            <li>Updated library F2837xS USB Library to version 5.00.01.00</li>
+            <li>Updated library F2838x USB Library to version 5.00.01.00</li>
+            <li>Updated library FPU to version 2.01.01.00</li>
+            <li>Updated library CLAmath to version 4.03.01.00</li>
+            <li>Updated library Ethercat to version 2.00.01.00</li>
+            <li>New: Added library AES v1.00.00.00</li></ul>
+    
+    
+        <h3 id="section-2.00.00.02"><a href="#section-2.00.00.02">2.00.00.02</a></h3><ul>
+            <li>Updated device f28004x to version 1.06.00.00</li>
+            <li>Updated device f2837xd to version 3.06.00.00</li>
+            <li>Updated device f2837xs to version 3.06.00.00</li>
+            <li>Updated device f2807x to version 3.06.00.00</li>
+            <li>Updated device f2838x to version 2.00.00.02</li>
+            <li>Updated library IQmath to version 1.61.00.00</li>
+            <li>Updated library FPU to version 2.01.00.00</li>
+            <li>Updated library FPU Fast RTS to version 2.01.00.00</li>
+            <li>Updated library LWIP to version 2.01.02.00</li>
+            <li>New: Added library PTPD v2.02.01.00</li>
+            <li>Updated library CLAmath to version 4.03.00.00</li>
+            <li>Updated library Ethercat to version 2.00.00.00</li></ul>
+    
+    
+        <h3 id="section-2.00.00.01"><a href="#section-2.00.00.01">2.00.00.01</a></h3><ul>
+            <li>New: Added device f2838x v2.00.00.01</li>
+            <li>Updated library FPU to version 2.00.00.00</li>
+            <li>Updated library FPU Fast RTS to version 2.00.00.00</li>
+            <li>New: Added library LWIP v1.03.02.00</li>
+            <li>Updated library CLAmath to version 4.02.03.00</li>
+            <li>New: Added library Ethercat v1.00.00.00</li></ul>
+    
+    
+        <h3 id="section-1.00.05.00"><a href="#section-1.00.05.00">1.00.05.00</a></h3><ul>
+            <li>Updated device f28004x to version 1.05.00.00</li>
+            <li>Updated device f2806x to version 2.04.00.00</li>
+            <li>Updated device f2837xd to version 3.05.00.00</li>
+            <li>Updated device f2837xs to version 3.05.00.00</li>
+            <li>Updated device f2807x to version 3.05.00.00</li>
+            <li>Updated library CLAmath to version 4.02.01.00</li>
+            <li>Updated library Digital Controller Library to version 3.00.00.00</li>       <li>Updated ROM symbol libraries for 2802x, 2803x & 2806x devices.
+</li>       <li>Added design files for F280049C launchXL ( Launchpad)
+</li>       <li>Added support for the TMDSCNCD280049C controlCARD.
+</li>       <li>Added support for the TMDSHSECDOCK docking station. 
+</li>       <li>Updated F28379D EMIF DC Configuration Tool Documentation</li></ul>
+    
+    
+        <h3 id="section-1.00.04.00"><a href="#section-1.00.04.00">1.00.04.00</a></h3><ul>
+            <li>Updated device f28004x to version 1.04.00.00</li>
+            <li>Updated device f2806x to version 2.03.00.00</li>
+            <li>Updated device f2837xd to version 3.04.00.00</li>
+            <li>Updated device f2837xs to version 3.04.00.00</li>
+            <li>Updated device f2807x to version 3.04.00.00</li>       <li>All C2000Ware installations now include .metadata 
+</li>       <li>Flash API and USB library details now included in C2000Ware manifest and release notes
+</li>       <li>USB windows drivers updated to support Windows 10
+</li>       <li>C2000Ware Quickstart Guide and controlSUITE to C2000Ware Guide Updated
+</li>       <li>Updated DockingStation DIM 100pin Experimenters Kit Quickstart Guide 
+</li>       <li>Updated F28004x bootROM and CLADataROM symbols for revB to properly support non-FPU</li></ul>
+    
+    
+        <h3 id="section-1.00.03.00"><a href="#section-1.00.03.00">1.00.03.00</a></h3><ul>
+            <li>Updated device f28004x to version 1.03.00.00</li>
+            <li>Updated device f2837xd to version 3.03.00.00</li>
+            <li>Updated device f2837xs to version 3.03.00.00</li>
+            <li>Updated device f2807x to version 3.03.00.00</li>
+            <li>Updated library Digital Controller Library to version 2.01.01.00</li>       <li>Updated EMIF DC Design Files
+</li>       <li>Corrected F28379D launchpad design files (Removed R1.2 and added R1.1)</li></ul>
+    
+    
+        <h3 id="section-1.00.02.00"><a href="#section-1.00.02.00">1.00.02.00</a></h3><ul>
+            <li>Updated device f28004x to version 1.02.00.00</li>
+            <li>Updated device f2837xd to version 3.02.00.00</li>
+            <li>Updated device f2837xs to version 3.02.00.00</li>
+            <li>Updated device f2807x to version 3.02.00.00</li>
+            <li>Updated library Digital Controller Library to version 2.01.00.00</li>       <li>Updated serial flash programmer v1.04.00.00 with F28004x support and new live DFU command
+</li>       <li>Added F28379D EMIF Daughtercard design files
+</li>       <li>Added LAUNCHXL F28379D rev2.0 design files
+</li>       <li>Added F28004x revB boot ROM source code and symbol libraries
+</li>       <li>New SPI-FSI high level drivers
+</li>       <li>Updated C2000Ware license
+</li>       <li>Windows USB drivers - Removed TivaWare references</li></ul>
+    
+    
+        <h3 id="section-1.00.01.00"><a href="#section-1.00.01.00">1.00.01.00</a></h3><ul>
+            <li>Updated device f28004x to version 1.01.00.00</li>
+            <li>Updated device f2837xd to version 3.01.00.00</li>
+            <li>Updated device f2837xs to version 3.01.00.00</li>
+            <li>Updated device f2807x to version 3.01.00.00</li>       <li>Added LAUNCHXL F28379D Schematic and support files
+</li>       <li>Fixed F280049M controlCARD schematic PDF page corruption
+</li>       <li>Fixed F28333 Flash API Library for F28333</li></ul>
+    
+    
+        <h3 id="section-1.00.00.00"><a href="#section-1.00.00.00">1.00.00.00</a></h3><ul>
+            <li>New: Added device f28004x v1.00.00.00</li>
+            <li>New: Added device f2802x v3.02.00.00</li>
+            <li>New: Added device f2802x0 v3.02.00.00</li>
+            <li>New: Added device f2803x v2.01.00.00</li>
+            <li>New: Added device f2805x v2.01.00.00</li>
+            <li>New: Added device f2806x v2.02.00.00</li>
+            <li>New: Added device f2833x v2.00.00.00</li>
+            <li>New: Added device f2823x v2.00.00.00</li>
+            <li>New: Added device f2837xd v3.00.00.00</li>
+            <li>New: Added device f2837xs v3.00.00.00</li>
+            <li>New: Added device f2807x v3.00.00.00</li>
+            <li>New: Added library IQmath v1.60.01.00</li>
+            <li>New: Added library FPU Fast RTS v1.00.00.00</li>
+            <li>New: Added library CLAmath v4.02.00.00</li>
+            <li>New: Added library HRCAP Calibration v1.10.00.00</li>
+            <li>New: Added library Fixed Point DSP v1.20.00.00</li>
+            <li>New: Added library SGEN v1.02.00.00</li>
+            <li>New: Added library PMBus v1.00.00.00</li>
+            <li>New: Added library FPU v1.50.00.00</li>
+            <li>New: Added library VCU v2.10.00.00</li>
+            <li>New: Added library Digital Controller Library v2.00.00.00</li></ul>
+    
+    
+        </ul>
+    
+        
+        
+    </body></html>
