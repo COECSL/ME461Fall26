@@ -28,6 +28,17 @@ static const uint16_t canBitValues[] =
 #define CANB_BASE    0x0004A000U // CAN-B Registers
 #define CAN_INT_INT0ID_STATUS           (0x8000U)
 
+//#define TX_MSG_DATA_LENGTH    4
+//#define TX_MSG_OBJ_ID         0  //transmit
+
+#define RX_MSG_DATA_LENGTH    8
+#define RX_MSG_OBJ_ID_1       1  //measurement from sensor 1
+#define RX_MSG_OBJ_ID_2       2  //measurement from sensor 2
+#define RX_MSG_OBJ_ID_3       3  //quality from sensor 1
+#define RX_MSG_OBJ_ID_4       4  //quality from sensor 2
+
+__interrupt void can_isr(void);
+
 void InitCANA(void);
 
 void InitCANB(void);
@@ -49,5 +60,7 @@ void CANclearInterruptStatus(uint32_t base, uint32_t intClr);
 void CANclearGlobalInterruptStatus(uint32_t base, uint16_t intFlags);
 
 void InterruptclearACKGroup(uint16_t group);
+
+void SetCANMessagesForIRSensor(void);
 
 #endif

@@ -26,29 +26,22 @@
 // The Launchpad's CPU Frequency set to 200 you should not change this value
 #define LAUNCHPAD_CPU_FREQUENCY 200
 
-// ----- code for CAN start here -----
 #include "F28379dCAN.h"
-//#define TX_MSG_DATA_LENGTH    4
-//#define TX_MSG_OBJ_ID         0  //transmit
-
-#define RX_MSG_DATA_LENGTH    8
-#define RX_MSG_OBJ_ID_1       1  //measurement from sensor 1
-#define RX_MSG_OBJ_ID_2       2  //measurement from sensor 2
-#define RX_MSG_OBJ_ID_3       3  //quality from sensor 1
-#define RX_MSG_OBJ_ID_4       4  //quality from sensor 2
-// ----- code for CAN end here -----
-
 
 // Interrupt Service Routines predefinition
 __interrupt void cpu_timer0_isr(void);
 __interrupt void cpu_timer1_isr(void);
 __interrupt void cpu_timer2_isr(void);
 __interrupt void SWI_isr(void);
-// ----- code for CAN start here -----
-__interrupt void can_isr(void);
-// ----- code for CAN end here -----
 __interrupt void SPIB_isr(void);
 void setupSpib(void);
+
+extern uint32_t dis_1;
+extern uint32_t dis_3;
+
+extern uint32_t measure_status_1;
+extern uint32_t measure_status_3;
+
 
 // Count variables
 uint32_t numTimer0calls = 0;
@@ -73,34 +66,6 @@ float gyroz = 0;
 
 int32_t SpibNumCalls = 0;
 
-// ----- code for CAN start here -----
-// volatile uint32_t txMsgCount = 0;
-// extern uint16_t txMsgData[4];
-
-volatile uint32_t rxMsgCount_1 = 0;
-volatile uint32_t rxMsgCount_3 = 0;
-extern uint16_t rxMsgData[8];
-
-uint32_t dis_raw_1[2];
-uint32_t dis_raw_3[2];
-uint32_t dis_1 = 0;
-uint32_t dis_3 = 0;
-
-uint32_t quality_raw_1[4];
-uint32_t quality_raw_3[4];
-float quality_1 = 0.0;
-float quality_3 = 0.0;
-
-uint32_t lightlevel_raw_1[4];
-uint32_t lightlevel_raw_3[4];
-float lightlevel_1 = 0.0;
-float lightlevel_3 = 0.0;
-
-uint32_t measure_status_1 = 0;
-uint32_t measure_status_3 = 0;
-
-volatile uint32_t errorFlag = 0;
-// ----- code for CAN end here -----
 
 
 void main(void)
@@ -261,29 +226,8 @@ void main(void)
     GPIO_SetupPinMux(8, GPIO_MUX_CPU1, 0);
     GPIO_SetupPinOptions(8, GPIO_INPUT, GPIO_PULLUP);
 
-    // ----- code for CAN start here -----
-    //GPIO17 - CANRXB
-    GPIO_SetupPinMux(17, GPIO_MUX_CPU1, 2);
-    GPIO_SetupPinOptions(17, GPIO_INPUT, GPIO_ASYNC);
-
-    //GPIO12 - CANTXB
-    GPIO_SetupPinMux(12, GPIO_MUX_CPU1, 2);
-    GPIO_SetupPinOptions(12, GPIO_OUTPUT, GPIO_PUSHPULL);
-    // ----- code for CAN end here -----
-
-
-
-    // ----- code for CAN start here -----
     // Initialize the CAN controller
     InitCANB();
-
-    // Set up the CAN bus bit rate to 1000 kbps
-    setCANBitRate(200000000, 1000000);
-
-    // Enables Interrupt line 0, Error & Status Change interrupts in CAN_CTL register.
-    CanbRegs.CAN_CTL.bit.IE0= 1;
-    CanbRegs.CAN_CTL.bit.EIE= 1;
-    // ----- code for CAN end here -----
 
     // Clear all interrupts and initialize PIE vector table:
     // Disable CPU interrupts
@@ -324,9 +268,9 @@ void main(void)
     PieVectTable.SPIB_RX_INT = &SPIB_isr;
 
     PieVectTable.EMIF_ERROR_INT = &SWI_isr;
-    // ----- code for CAN start here -----
+
     PieVectTable.CANB0_INT = &can_isr;
-    // ----- code for CAN end here -----	
+
     EDIS;    // This is needed to disable write to EALLOW protected registers
 
 
@@ -364,131 +308,19 @@ void main(void)
 	// Enable SWI in the PIE: Group 12 interrupt 9
     PieCtrlRegs.PIEIER12.bit.INTx9 = 1;
 	PieCtrlRegs.PIEIER6.bit.INTx3 = 1;  //SPiB
-    // ----- code for CAN start here -----
     // Enable CANB in the PIE: Group 9 interrupt 7
     PieCtrlRegs.PIEIER9.bit.INTx7 = 1;
-    // ----- code for CAN end here -----
-
-    // ----- code for CAN start here -----
     // Enable the CAN interrupt signal
     CanbRegs.CAN_GLB_INT_EN.bit.GLBINT0_EN = 1;
-    // ----- code for CAN end here -----
 	
 	init_serialSCIC(&SerialC,115200);
 	init_serialSCID(&SerialD,115200);
     // Enable global Interrupts and higher priority real-time debug events
     EINT;  // Enable Global interrupt INTM
     ERTM;  // Enable Global realtime interrupt DBGM
-    // ----- code for CAN start here -----
-
-    //    // Transmit Message
-    //    // Initialize the transmit message object used for sending CAN messages.
-    //    // Message Object Parameters:
-    //    //      Message Object ID Number: 0
-    //    //      Message Identifier: 0x1
-    //    //      Message Frame: Standard
-    //    //      Message Type: Transmit
-    //    //      Message ID Mask: 0x0
-    //    //      Message Object Flags: Transmit Interrupt
-    //    //      Message Data Length: 4 Bytes
-    //    //
-    //    CANsetupMessageObject(CANB_BASE, TX_MSG_OBJ_ID, 0x1, CAN_MSG_FRAME_STD,
-    //                           CAN_MSG_OBJ_TYPE_TX, 0, CAN_MSG_OBJ_TX_INT_ENABLE,
-    //                           TX_MSG_DATA_LENGTH);
-
-    // Measured Distance from 1
-    // Initialize the receive message object 1 used for receiving CAN messages.
-    // Message Object Parameters:
-    //      Message Object ID Number: 1
-    //      Message Identifier: 0x060b0101
-    //      Message Frame: Standard
-    //      Message Type: Receive
-    //      Message ID Mask: 0x0
-    //      Message Object Flags: Receive Interrupt
-    //      Message Data Length: 8 Bytes (Note that DLC field is a "don't care"
-    //      for a Receive mailbox)
-    //
-    CANsetupMessageObject(CANB_BASE, RX_MSG_OBJ_ID_1, 0x060b0101, CAN_MSG_FRAME_EXT,
-                          CAN_MSG_OBJ_TYPE_RX, 0, CAN_MSG_OBJ_RX_INT_ENABLE,
-                          RX_MSG_DATA_LENGTH);
-
-    // Measured Distance from 2
-    // Initialize the receive message object 2 used for receiving CAN messages.
-    // Message Object Parameters:
-    //      Message Object ID Number: 2
-    //      Message Identifier: 0x060b0102
-    //      Message Frame: Standard
-    //      Message Type: Receive
-    //      Message ID Mask: 0x0
-    //      Message Object Flags: Receive Interrupt
-    //      Message Data Length: 8 Bytes (Note that DLC field is a "don't care"
-    //      for a Receive mailbox)
-    //
-
-    CANsetupMessageObject(CANB_BASE, RX_MSG_OBJ_ID_2, 0x060b0103, CAN_MSG_FRAME_EXT,
-                          CAN_MSG_OBJ_TYPE_RX, 0, CAN_MSG_OBJ_RX_INT_ENABLE,
-                          RX_MSG_DATA_LENGTH);
-
-    // Measurement Quality from 1
-    // Initialize the receive message object 2 used for receiving CAN messages.
-    // Message Object Parameters:
-    //      Message Object ID Number: 3
-    //      Message Identifier: 0x060b0201
-    //      Message Frame: Standard
-    //      Message Type: Receive
-    //      Message ID Mask: 0x0
-    //      Message Object Flags: Receive Interrupt
-    //      Message Data Length: 8 Bytes (Note that DLC field is a "don't care"
-    //      for a Receive mailbox)
-    //
-
-    CANsetupMessageObject(CANB_BASE, RX_MSG_OBJ_ID_3, 0x060b0201, CAN_MSG_FRAME_EXT,
-                          CAN_MSG_OBJ_TYPE_RX, 0, CAN_MSG_OBJ_RX_INT_ENABLE,
-                          RX_MSG_DATA_LENGTH);
-
-    // Measurement Quality from 2
-    // Initialize the receive message object 2 used for receiving CAN messages.
-    // Message Object Parameters:
-    //      Message Object ID Number: 4
-    //      Message Identifier: 0x060b0202
-    //      Message Frame: Standard
-    //      Message Type: Receive
-    //      Message ID Mask: 0x0
-    //      Message Object Flags: Receive Interrupt
-    //      Message Data Length: 8 Bytes (Note that DLC field is a "don't care"
-    //      for a Receive mailbox)
-    //
-
-    CANsetupMessageObject(CANB_BASE, RX_MSG_OBJ_ID_4, 0x060b0203, CAN_MSG_FRAME_EXT,
-                          CAN_MSG_OBJ_TYPE_RX, 0, CAN_MSG_OBJ_RX_INT_ENABLE,
-                          RX_MSG_DATA_LENGTH);
-
-    //
-    // Start CAN module operations
-    //
-    CanbRegs.CAN_CTL.bit.Init = 0;
-    CanbRegs.CAN_CTL.bit.CCE = 0;
-
-    //    // Initialize the transmit message object data buffer to be sent
-    //    txMsgData[0] = 0x12;
-    //    txMsgData[1] = 0x34;
-    //    txMsgData[2] = 0x56;
-    //    txMsgData[3] = 0x78;
-
-
-    //    // Loop Forever - A message will be sent once per second.
-    //    for(;;)
-    //    {
-    //
-    //        CANsendMessage(CANB_BASE, TX_MSG_OBJ_ID, TX_MSG_DATA_LENGTH, txMsgData);
-    //        txMsgCount++;
-    //        DEVICE_DELAY_US(1000000);
-    //    }
-
-
-    // ----- code for CAN end here -----
-
     
+	SetCANMessagesForIRSensor();
+	
     // IDLE loop. Just sit and loop forever (optional):
     while(1)
     {
@@ -860,214 +692,3 @@ __interrupt void SPIB_isr(void) {
 
 }
 
-// ----- code for CAN start here -----
-__interrupt void can_isr(void)
-{
-    int i = 0;
-
-    uint32_t status;
-
-    GpioDataRegs.GPBSET.bit.GPIO52 = 1;
-    //
-    // Read the CAN interrupt status to find the cause of the interrupt
-    //
-    status = CANgetInterruptCause(CANB_BASE);
-
-    //
-    // If the cause is a controller status interrupt, then get the status
-    //
-    if(status == CAN_INT_INT0ID_STATUS)
-    {
-        //
-        // Read the controller status.  This will return a field of status
-        // error bits that can indicate various errors.  Error processing
-        // is not done in this example for simplicity.  Refer to the
-        // API documentation for details about the error status bits.
-        // The act of reading this status will clear the interrupt.
-        //
-        status = CANgetStatus(CANB_BASE);
-
-    }
-
-    //
-    // Check if the cause is the transmit message object 1
-    //
-    //    else if(status == TX_MSG_OBJ_ID)
-    //    {
-    //        //
-    //        // Getting to this point means that the TX interrupt occurred on
-    //        // message object 1, and the message TX is complete.  Clear the
-    //        // message object interrupt.
-    //        //
-    //        CANclearInterruptStatus(CANB_BASE, TX_MSG_OBJ_ID);
-    //
-    //        //
-    //        // Since the message was sent, clear any error flags.
-    //        //
-    //        errorFlag = 0;
-    //    }
-
-    //
-    // Check if the cause is the receive message object 2
-    //
-    else if(status == RX_MSG_OBJ_ID_1)
-    {
-        //
-        // Get the received message
-        //
-        CANreadMessage(CANB_BASE, RX_MSG_OBJ_ID_1, rxMsgData);
-
-        for(i = 0; i<2; i++)
-        {
-            dis_raw_1[i] = rxMsgData[i];
-        }
-
-        dis_1 = 256*dis_raw_1[1] + dis_raw_1[0];
-
-        measure_status_1 = rxMsgData[2];
-
-        //
-        // Getting to this point means that the RX interrupt occurred on
-        // message object 2, and the message RX is complete.  Clear the
-        // message object interrupt.
-        //
-        CANclearInterruptStatus(CANB_BASE, RX_MSG_OBJ_ID_1);
-
-        //
-        // Increment a counter to keep track of how many messages have been
-        // received. In a real application this could be used to set flags to
-        // indicate when a message is received.
-        //
-        rxMsgCount_1++;
-
-        //
-        // Since the message was received, clear any error flags.
-        //
-        errorFlag = 0;
-        GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
-    }
-
-    else if(status == RX_MSG_OBJ_ID_2)
-    {
-        //
-        // Get the received message
-        //
-        CANreadMessage(CANB_BASE, RX_MSG_OBJ_ID_2, rxMsgData);
-
-        for(i = 0; i<2; i++)
-        {
-            dis_raw_3[i] = rxMsgData[i];
-        }
-
-        dis_3 = 256*dis_raw_3[1] + dis_raw_3[0];
-
-        measure_status_3 = rxMsgData[2];
-
-        //
-        // Getting to this point means that the RX interrupt occurred on
-        // message object 2, and the message RX is complete.  Clear the
-        // message object interrupt.
-        //
-        CANclearInterruptStatus(CANB_BASE, RX_MSG_OBJ_ID_2);
-
-        //
-        // Increment a counter to keep track of how many messages have been
-        // received. In a real application this could be used to set flags to
-        // indicate when a message is received.
-        //
-        rxMsgCount_3++;
-
-        //
-        // Since the message was received, clear any error flags.
-        //
-        errorFlag = 0;
-        GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
-    }
-
-    else if(status == RX_MSG_OBJ_ID_3)
-    {
-        //
-        // Get the received message
-        //
-        CANreadMessage(CANB_BASE, RX_MSG_OBJ_ID_3, rxMsgData);
-
-        for(i = 0; i<4; i++)
-        {
-            lightlevel_raw_1[i] = rxMsgData[i];
-            quality_raw_1[i] = rxMsgData[i+4];
-
-        }
-
-        lightlevel_1 = ((256.0*256.0*256.0)*lightlevel_raw_1[3] + (256.0*256.0)*lightlevel_raw_1[2] + 256.0*lightlevel_raw_1[1] + lightlevel_raw_1[0])/65535;
-        quality_1 = ((256.0*256.0*256.0)*quality_raw_1[3] + (256.0*256.0)*quality_raw_1[2] + 256.0*quality_raw_1[1] + quality_raw_1[0])/65535;
-
-
-        //
-        // Getting to this point means that the RX interrupt occurred on
-        // message object 2, and the message RX is complete.  Clear the
-        // message object interrupt.
-        //
-        CANclearInterruptStatus(CANB_BASE, RX_MSG_OBJ_ID_3);
-
-        //
-        // Since the message was received, clear any error flags.
-        //
-        errorFlag = 0;
-        GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
-    }
-
-
-    else if(status == RX_MSG_OBJ_ID_4)
-    {
-        //
-        // Get the received message
-        //
-        CANreadMessage(CANB_BASE, RX_MSG_OBJ_ID_4, rxMsgData);
-
-        for(i = 0; i<4; i++)
-        {
-            lightlevel_raw_3[i] = rxMsgData[i];
-            quality_raw_3[i] = rxMsgData[i+4];
-
-        }
-
-        lightlevel_3 = ((256.0*256.0*256.0)*lightlevel_raw_3[3] + (256.0*256.0)*lightlevel_raw_3[2] + 256.0*lightlevel_raw_3[1] + lightlevel_raw_3[0])/65535;
-        quality_3 = ((256.0*256.0*256.0)*quality_raw_3[3] + (256.0*256.0)*quality_raw_3[2] + 256.0*quality_raw_3[1] + quality_raw_3[0])/65535;
-
-        //
-        // Getting to this point means that the RX interrupt occurred on
-        // message object 2, and the message RX is complete.  Clear the
-        // message object interrupt.
-        //
-        CANclearInterruptStatus(CANB_BASE, RX_MSG_OBJ_ID_4);
-
-        //
-        // Since the message was received, clear any error flags.
-        //
-        errorFlag = 0;
-        GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
-    }
-
-
-
-    //
-    // If something unexpected caused the interrupt, this would handle it.
-    //
-    else
-    {
-        //
-        // Spurious interrupt handling can go here.
-        //
-    }
-
-    //
-    // Clear the global interrupt flag for the CAN interrupt line
-    //
-    CANclearGlobalInterruptStatus(CANB_BASE, CAN_GLOBAL_INT_CANINT0);
-
-    //
-    // Acknowledge this interrupt located in group 9
-    //
-    InterruptclearACKGroup(INTERRUPT_ACK_GROUP9);
-}
-// ----- code for CAN end here -----
