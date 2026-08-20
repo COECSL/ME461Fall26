@@ -20,7 +20,7 @@ extern serial_t SerialA;
 
 uint16_t init_serial(serial_t *s, Uint32 baud, void (*got_func)(serial_t *s, char data));
 void uninit_serial(serial_t *s);
-uint16_t serial_send(serial_t *s, char *data, Uint16 len);
+uint16_t serial_send(serial_t *s, char *data, uint16_t len);
 uint16_t serial_printf(serial_t *s, char *fmt, ...);
 
 __interrupt void TXAINT_data_sent(void);

@@ -43,6 +43,7 @@
     <file action="copy" path="../LEDPatterns.c" targetDirectory="" />
     <file action="copy" path="../LEDPatterns.h" targetDirectory="" />
 	<file action="copy" path="../song.h" targetDirectory="" />
+	<file action="copy" path="../python/" targetDirectory="" excludeFromBuild="True" />
     <file action="copy" path="../.gitignore" targetDirectory="" />	
   </project>
 </projectSpec>
