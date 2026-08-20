@@ -5,7 +5,7 @@
         cgtVersion="25.11.0.LTS"
         launchWizard="False"
         linkerCommandFile=""
-	postBuildStep="..\..\..\C2Prog2.x\c2p-cli mkehx --target=28027,23,21_SCI ${ProjName}.out ${ProjName}.ehx"
+	postBuildStep="c2p-cli mkehx --target=28027,23,21_SCI ${ProjName}.out ${ProjName}.ehx"
         >
     <configuration name="CPU_FLASH" compilerBuildOptions="--opt_level=off -I${C2000WARE_COMMON_INCLUDE} -I${C2000WARE_HEADERS_INCLUDE} -I${PROJECT_ROOT} --define=DEBUG --define=_FLASH -ml -mt -v28 --diag_warning=225 --c11 --printf_support=full --diag_suppress=10063 --display_error_number" linkerBuildOptions="--stack_size=0x3B0  " />
     <pathVariable name="C2000WARE_COMMON_INCLUDE" path="../../../../../common/include/" scope="project" />
