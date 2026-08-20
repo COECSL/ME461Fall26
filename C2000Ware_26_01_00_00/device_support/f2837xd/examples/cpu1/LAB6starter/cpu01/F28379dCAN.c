@@ -64,14 +64,6 @@ void InitCANA(void)
 {
     int16_t iMsg;
 
-    //GPIO17 - CANRXB
-    GPIO_SetupPinMux(17, GPIO_MUX_CPU1, 2);
-    GPIO_SetupPinOptions(17, GPIO_INPUT, GPIO_ASYNC);
-
-    //GPIO12 - CANTXB
-    GPIO_SetupPinMux(12, GPIO_MUX_CPU1, 2);
-    GPIO_SetupPinOptions(12, GPIO_OUTPUT, GPIO_PUSHPULL);
-
     //
     // Place CAN controller in init state, regardless of previous state.  This
     // will put controller in idle, and allow the message object RAM to be
@@ -148,6 +140,14 @@ void InitCANA(void)
 void InitCANB(void)
 {
     int16_t iMsg;
+
+    //GPIO17 - CANRXB
+    GPIO_SetupPinMux(17, GPIO_MUX_CPU1, 2);
+    GPIO_SetupPinOptions(17, GPIO_INPUT, GPIO_ASYNC);
+
+    //GPIO12 - CANTXB
+    GPIO_SetupPinMux(12, GPIO_MUX_CPU1, 2);
+    GPIO_SetupPinOptions(12, GPIO_OUTPUT, GPIO_PUSHPULL);
 
     //
     // Place CAN controller in init state, regardless of previous state.  This
