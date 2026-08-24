@@ -38,6 +38,8 @@ __interrupt void SWI3_LowestPriority(void);
 
 // Count variables
 uint32_t numTimer0calls = 0;
+uint32_t numTimer1calls = 0;
+uint32_t numTimer2calls = 0;
 extern uint32_t numRXA;
 uint16_t UARTPrint = 0;
 uint16_t LEDdisplaynum = 0;
@@ -328,8 +330,6 @@ void main(void)
 // cpu_timer0_isr - CPU Timer0 ISR
 __interrupt void cpu_timer0_isr(void)
 {
-    CpuTimer0.InterruptCount++;
-
     numTimer0calls++;
 
 
@@ -363,7 +363,7 @@ __interrupt void cpu_timer0_isr(void)
 // cpu_timer1_isr - CPU Timer1 ISR
 __interrupt void cpu_timer1_isr(void)
 {
-    CpuTimer1.InterruptCount++;
+    numTimer1calls++;
     PieCtrlRegs.PIEIFR12.bit.INTx9 = 1;  // Manually cause the interrupt for the SWIHigh
 }
 
@@ -371,8 +371,8 @@ __interrupt void cpu_timer1_isr(void)
 __interrupt void cpu_timer2_isr(void)
 {
 
-    CpuTimer2.InterruptCount++;
-    if ((CpuTimer2.InterruptCount % 10) == 0) {
+    numTimer2calls++;
+    if ((numTimer2calls % 10) == 0) {
         // Blink LaunchPad Blue LED
         PieCtrlRegs.PIEIFR12.bit.INTx11 = 1;  // Manually cause the interrupt for the SWILow
         GpioDataRegs.GPATOGGLE.bit.GPIO31 = 1;

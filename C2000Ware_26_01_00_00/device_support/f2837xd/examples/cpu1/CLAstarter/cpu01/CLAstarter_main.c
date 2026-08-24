@@ -37,6 +37,8 @@ __interrupt void SWI_isr(void);
 
 // Count variables
 uint32_t numTimer0calls = 0;
+uint32_t numTimer1calls = 0;
+uint32_t numTimer2calls = 0;
 uint32_t numSWIcalls = 0;
 extern uint32_t numRXA;
 uint16_t UARTPrint = 0;
@@ -449,20 +451,20 @@ __interrupt void cpu_timer0_isr(void)
 __interrupt void cpu_timer1_isr(void)
 {
 
-    CLAin_Value = CpuTimer1.InterruptCount*0.001;  // Pass time to CLA
+    CLAin_Value = numTimer1calls*0.001;  // Pass time to CLA
 
     Cla1ForceTask1();
 	
-    CpuTimer1.InterruptCount++;
+    numTimer1calls++;
 }
 
 // cpu_timer2_isr CPU Timer2 ISR
 __interrupt void cpu_timer2_isr(void)
 {
 
-    CpuTimer2.InterruptCount++;
+    numTimer2calls++;
 
-    if ((CpuTimer2.InterruptCount % 50) == 0) {
+    if ((numTimer2calls % 50) == 0) {
         UARTPrint = 1;
         // Blink LaunchPad Blue LED
         GpioDataRegs.GPATOGGLE.bit.GPIO31 = 1;
