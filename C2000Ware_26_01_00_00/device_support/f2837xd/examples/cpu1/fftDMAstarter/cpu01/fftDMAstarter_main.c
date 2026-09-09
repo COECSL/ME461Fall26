@@ -350,7 +350,7 @@ void main(void)
     EPwm7Regs.TBCTL.bit.PHSEN = 0; // Disable phase loading
     EPwm7Regs.TBCTL.bit.CLKDIV = 0; // divide by 1 50Mhz Clock
     EPwm7Regs.TBPRD = 5000; // Set Period to 0.1ms sample. Input clock is 50MHz.
-    EPwm7Regs.ETSEL.bit.SOCAEN = 1; // Disable SOC on A group
+    EPwm7Regs.ETSEL.bit.SOCAEN = 1; // Enable SOC on A group
     // Notice here that we are not setting CMPA or CMPB because we are not using the PWM signal EPwm7Regs.ETSEL.bit.SOCAEN = 1; //enable SOCA
     EPwm7Regs.TBCTL.bit.CTRMODE = 0x00; //unfreeze, and enter up count mode
     EDIS;
