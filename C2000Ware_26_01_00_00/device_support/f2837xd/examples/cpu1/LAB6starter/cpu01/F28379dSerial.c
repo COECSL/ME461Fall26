@@ -45,12 +45,12 @@ CAMRecFloats_t DataFromCameraThreshold2;
 float fromCAMvaluesThreshold2[CAMNUM_FROM_FLOATS];
 
 uint16_t tempLSB = 0;
-LVRecFloats_t DataFromLabView;
-LVSendFloats_t DataToLabView;
-uint16_t received_LV_count = 0;
-uint16_t NewLVData = 0;
-char LVsenddata[LVNUM_TOFROM_FLOATS*4+2];
-float fromLVvalues[LVNUM_TOFROM_FLOATS];
+PYRecFloats_t DataFromPython;
+PYSendFloats_t DataToPython;
+uint16_t received_PY_count = 0;
+uint16_t NewPYData = 0;
+char PYsenddata[PYNUM_TOFROM_FLOATS*4+2];
+float fromPYvalues[PYNUM_TOFROM_FLOATS];
 
 CMDRecFloats_t DataFromLinuxCMD;
 uint16_t received_CMD_count = 0;
@@ -806,7 +806,7 @@ __interrupt void RXDINT_recv_ready(void)
                 newAstarPath = 0;
             } else if (RXDdata == '$') {
                 com_state = 30;
-                received_LV_count = 0;
+                received_PY_count = 0;
             } else if (RXDdata == '!') {
                 com_state = 40;
                 received_CMD_count = 0;
@@ -864,24 +864,24 @@ __interrupt void RXDINT_recv_ready(void)
                 com_state = 0;
             }
         } else if (com_state == 30) {
-            if ((received_LV_count % 2) == 0) {
+            if ((received_PY_count % 2) == 0) {
                 tempLSB = RXDdata;
             } else {
-                DataFromLabView.rawData[received_LV_count/2] = (RXDdata << 8)|tempLSB;
+                DataFromPython.rawData[received_PY_count/2] = (RXDdata << 8)|tempLSB;
             }
-            received_LV_count++;
-            if (received_LV_count >= 4*LVNUM_TOFROM_FLOATS) {
-                received_LV_count = 0;
+            received_PY_count++;
+            if (received_PY_count >= 4*PYNUM_TOFROM_FLOATS) {
+                received_PY_count = 0;
                 com_state = 0;
-                fromLVvalues[0] = DataFromLabView.floatData[0];
-                fromLVvalues[1] = DataFromLabView.floatData[1];
-                fromLVvalues[2] = DataFromLabView.floatData[2];
-                fromLVvalues[3] = DataFromLabView.floatData[3];
-                fromLVvalues[4] = DataFromLabView.floatData[4];
-                fromLVvalues[5] = DataFromLabView.floatData[5];
-                fromLVvalues[6] = DataFromLabView.floatData[6];
-                fromLVvalues[7] = DataFromLabView.floatData[7];
-                NewLVData = 1;  // Flag new data
+                fromPYvalues[0] = DataFromPython.floatData[0];
+                fromPYvalues[1] = DataFromPython.floatData[1];
+                fromPYvalues[2] = DataFromPython.floatData[2];
+                fromPYvalues[3] = DataFromPython.floatData[3];
+                fromPYvalues[4] = DataFromPython.floatData[4];
+                fromPYvalues[5] = DataFromPython.floatData[5];
+                fromPYvalues[6] = DataFromPython.floatData[6];
+                fromPYvalues[7] = DataFromPython.floatData[7];
+                NewPYData = 1;  // Flag new data
             }
         } else if (com_state == 40) {
             if ((received_CMD_count % 2) == 0) {

@@ -69,16 +69,16 @@ typedef union CAMRecFloats_s {
     float floatData[CAMNUM_FROM_FLOATS];
 } CAMRecFloats_t;
 
-#define LVNUM_TOFROM_FLOATS 8
-typedef union LVRecFloats_s {
-    uint16_t rawData[LVNUM_TOFROM_FLOATS*2];
-    float floatData[LVNUM_TOFROM_FLOATS];
-} LVRecFloats_t;
+#define PYNUM_TOFROM_FLOATS 8
+typedef union PYRecFloats_s {
+    uint16_t rawData[PYNUM_TOFROM_FLOATS*2];
+    float floatData[PYNUM_TOFROM_FLOATS];
+} PYRecFloats_t;
 
-typedef union LVSendFloats_s {
-    uint16_t rawData[LVNUM_TOFROM_FLOATS*2];
-    float floatData[LVNUM_TOFROM_FLOATS];
-} LVSendFloats_t;
+typedef union PYSendFloats_s {
+    uint16_t rawData[PYNUM_TOFROM_FLOATS*2];
+    float floatData[PYNUM_TOFROM_FLOATS];
+} PYSendFloats_t;
 
 #define CMDNUM_FROM_FLOATS 11
 typedef union CMDRecFloats_s {
