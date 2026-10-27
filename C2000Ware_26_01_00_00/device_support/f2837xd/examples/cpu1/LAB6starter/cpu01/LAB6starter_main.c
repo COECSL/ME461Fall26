@@ -347,10 +347,7 @@ __interrupt void SWI_isr(void) {
     asm("       NOP");                    // Wait one cycle
     EINT;                                 // Clear INTM to enable interrupts
 	
-	
-	
     // Insert SWI ISR Code here.......
-	
 	
     numSWIcalls++;
     
@@ -397,10 +394,10 @@ __interrupt void cpu_timer0_isr(void)
     SpibRegs.SPITXBUF = 0x0000;
 
 
-    if ((numTimer0calls%50) == 0) {
-		// Blink LaunchPad Red LED
-		GpioDataRegs.GPBTOGGLE.bit.GPIO34 = 1;
-    }
+    //if ((numTimer0calls%50) == 0) {
+	//	// Blink LaunchPad Red LED
+	//	GpioDataRegs.GPBTOGGLE.bit.GPIO34 = 1;
+    //}
 
 
     // Acknowledge this interrupt to receive more interrupts from group 1
@@ -418,7 +415,7 @@ __interrupt void cpu_timer1_isr(void)
 __interrupt void cpu_timer2_isr(void)
 {
 	// Blink LaunchPad Blue LED
-    GpioDataRegs.GPATOGGLE.bit.GPIO31 = 1;
+    //GpioDataRegs.GPATOGGLE.bit.GPIO31 = 1;
 
     numTimer2calls++;
 	
@@ -680,6 +677,21 @@ __interrupt void SPIB_isr(void) {
     gyrox = gyrox_raw*(250.0/32767.0);
     gyroy = gyroy_raw*(250.0/32767.0);
     gyroz = gyroz_raw*(250.0/32767.0);
+
+// This post of the SWI interrupt is only needed in Lab 6
+// Comment out these next eight lines for Lab 7, the given code in Lab 7 performs the SWI Post and blinks the LEDs
+	if ((SpibNumCalls % 4) == 0) {
+		PieCtrlRegs.PIEIFR12.bit.INTx9 = 1;  // Software Trigger, Post, SWI interrupt.  
+	}
+	if ((numTimer0calls%50) == 0) {
+		// Blink LaunchPad LEDs
+		GpioDataRegs.GPBTOGGLE.bit.GPIO34 = 1;
+	    GpioDataRegs.GPATOGGLE.bit.GPIO31 = 1;
+    }
+
+
+// In Lab7, Cut and Paste the Lab 7 code right here
+
 
     if ((SpibNumCalls % 200) == 0) {
         UARTPrint = 1;
