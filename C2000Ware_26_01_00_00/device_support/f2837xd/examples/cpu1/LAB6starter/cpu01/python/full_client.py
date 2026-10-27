@@ -232,9 +232,9 @@ class FloatClientApp:
                 return "break"
 
             if key == 'w':
-                # Go straight: set speed to 0.5 and steering to zero.
+                # Go straight: set speed to 0.2 and steering to zero.
                 self.send_entries[0].delete(0, tk.END)
-                self.send_entries[0].insert(0, "0.5")
+                self.send_entries[0].insert(0, "0.2")
                 self.send_entries[1].delete(0, tk.END)
                 self.send_entries[1].insert(0, "0.0")
                 self.send_floats()
