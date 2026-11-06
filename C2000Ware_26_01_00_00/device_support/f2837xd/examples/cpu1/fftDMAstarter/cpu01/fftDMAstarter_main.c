@@ -593,8 +593,6 @@ interrupt void DMA_ISR(void)                    // PIE7.1 @ 0x000DA0  DMA channe
 {
     PieCtrlRegs.PIEACK.all = PIEACK_GROUP7;         // Must acknowledge the PIE group
 
-    GpioDataRegs.GPBTOGGLE.bit.GPIO52 = 1;
-
     //--- Process the ADC data
     if(iPingPong == 0)  // Ping buffer filling, process Pong bugger
     {

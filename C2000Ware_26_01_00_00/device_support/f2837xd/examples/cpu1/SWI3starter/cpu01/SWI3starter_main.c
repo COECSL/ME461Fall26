@@ -167,10 +167,6 @@ void main(void)
     GPIO_SetupPinOptions(160, GPIO_OUTPUT, GPIO_PUSHPULL);
     GpioDataRegs.GPFCLEAR.bit.GPIO160 = 1;
 
-    GPIO_SetupPinMux(52, GPIO_MUX_CPU1, 0);
-    GPIO_SetupPinOptions(52, GPIO_OUTPUT, GPIO_PUSHPULL);
-    GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
-
     GPIO_SetupPinMux(67, GPIO_MUX_CPU1, 0);
     GPIO_SetupPinOptions(67, GPIO_OUTPUT, GPIO_PUSHPULL);
     GpioDataRegs.GPCCLEAR.bit.GPIO67 = 1;

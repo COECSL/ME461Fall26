@@ -557,7 +557,6 @@ __interrupt void can_isr(void)
 
     uint32_t status;
 
-    GpioDataRegs.GPBSET.bit.GPIO52 = 1;
     //
     // Read the CAN interrupt status to find the cause of the interrupt
     //
@@ -634,7 +633,6 @@ __interrupt void can_isr(void)
         // Since the message was received, clear any error flags.
         //
         errorFlag = 0;
-        GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
     }
 
     else if(status == RX_MSG_OBJ_ID_2)
@@ -671,7 +669,6 @@ __interrupt void can_isr(void)
         // Since the message was received, clear any error flags.
         //
         errorFlag = 0;
-        GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
     }
 
     else if(status == RX_MSG_OBJ_ID_3)
@@ -703,7 +700,6 @@ __interrupt void can_isr(void)
         // Since the message was received, clear any error flags.
         //
         errorFlag = 0;
-        GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
     }
 
 
@@ -735,7 +731,6 @@ __interrupt void can_isr(void)
         // Since the message was received, clear any error flags.
         //
         errorFlag = 0;
-        GpioDataRegs.GPBCLEAR.bit.GPIO52 = 1;
     }
 
 
