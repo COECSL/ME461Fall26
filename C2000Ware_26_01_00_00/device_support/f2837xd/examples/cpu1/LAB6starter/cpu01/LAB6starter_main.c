@@ -292,6 +292,7 @@ void main(void)
     CpuTimer2Regs.TCR.all = 0x4000;
 
 	init_serialSCIA(&SerialA,115200);
+	init_serialSCIB(&SerialB,115200);
     setupSpib();
 	
     // Enable CPU int1 which is connected to CPU-Timer 0, CPU int13
